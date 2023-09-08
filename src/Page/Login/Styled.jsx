@@ -31,7 +31,7 @@ export const FormInput = styled.input`
     border-radius: 10px;
     font-weight: 300;
     width:60vw;
-    height: 06vh;
+    height: 05vh;
     margin-top:1.4vw;
 
     text-align: left; /* Alinhamento horizontal */
@@ -55,9 +55,14 @@ export const FormForm = styled.button`
     border-radius: 10px;
     font-weight: 300;
     width:60vw;
-    height:06vh;
+    height:05vh;
     margin-top:3vw;
     display: flex;
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; 
+
+    a:visited {
+        color: inherit; /* Isso faz com que o link adote a cor do seu elemento pai */
+        text-decoration: none; /* Isso remove o sublinhado padrão de links visitados */
+    }
     `
