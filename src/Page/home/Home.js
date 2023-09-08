@@ -1,5 +1,5 @@
 import { ButtonContainer, ContainerText, ItemText, SectionBody } from "./styled"
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 function Home(){
@@ -14,7 +14,9 @@ function Home(){
         Permita que a dança seja sua aliada na resolução de problemas internos e na superação de bloqueios, encontrando uma conexão profunda com seu corpo e mente.
         </ItemText>      
         <ButtonContainer>
-            Começar
+        <Link to= "/Formulario1">   
+        Começar
+        </Link>
         </ButtonContainer>
 
         </ContainerText>

@@ -48,8 +48,8 @@ export const FormForm = styled.form`
 export const Button = styled.button`
     background-color:  rgb(114, 86, 122, 0.3);;
     border: 1px solid  rgb(114, 86, 122, 0.1);;
-    height: 7vh;
-    width: 20vh;
+    height: 5vh;
+    width: 18vh;
     border-radius: 10px;
     font-weight: 300;
     box-shadow: 2px 3px 7px #00000060;

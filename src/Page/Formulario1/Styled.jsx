@@ -45,8 +45,8 @@ export const FormForm = styled.form`
 export const ButtonContainer = styled.button`
     background-color:  rgb(114, 86, 122, 0.3);;
     border: 1px solid  rgb(114, 86, 122, 0.1);;
-    height: 7vh;
-    width: 20vh;
+    height: 5vh;
+    width:15vh;
     border-radius: 10px;
     font-weight: 300;
     box-shadow: 2px 3px 7px #00000060;
@@ -75,7 +75,7 @@ export const LabelContainer = styled.label`
 export const InputContainer = styled.input`
     background-color: rgb(114, 86, 122, 0.1);
     border: 1px solid #ffffff;
-    height: 45px;
+    height: 25vh;
     border-radius: 10px;
     font-weight: 300;
     height: 06vh;

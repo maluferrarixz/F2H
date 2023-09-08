@@ -1,4 +1,5 @@
 import { Button, ButtonContainer, FormContainer, FormForm, InputContainer, LabelContainer, TextContainer, TittleContainer } from "./Styled"
+import { Link } from "react-router-dom"
 
 function Formulario1(){
 
@@ -42,7 +43,11 @@ function Formulario1(){
             </FormContainer>
             <FormContainer>
                 <FormForm>
-                <Button>Próximo</Button>
+                <Button>
+                <Link to= "/Formulario1">   
+                    Próximo
+                </Link>
+                </Button>
                 </FormForm>
             </FormContainer>
         </>

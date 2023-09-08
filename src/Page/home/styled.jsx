@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import img from "../../Assets/HomePage.jpg ."
-
+import img from "../../Assets/HomePage.jpg"
 
 
 export const SectionBody =styled.section`
@@ -30,7 +29,6 @@ export const ContainerText = styled.div`
     margin-top:10vh;
     text-align: center; /* Centraliza o conteúdo horizontalmente na div */
     padding: 10px;
-    border: 1px solid #ffffff;
     margin-left:05vh;
 
 
@@ -42,7 +40,7 @@ export const ItemText = styled.p`
     text-align:left;
     padding: 03vh;
     padding-top: 04vh;
-    color: black;
+    color: #ffffff;
     font-family: 'Poppins', sans-serif;
     padding: 10px; /* Espaçamento interno dentro das colunas */
 
@@ -59,6 +57,12 @@ export const ButtonContainer = styled.button`
     height: 4vh;
     width: 29vw;
     margin-top:9%;
+
+
+    a:visited {
+        color: inherit; /* Isso faz com que o link adote a cor do seu elemento pai */
+        text-decoration: none; /* Isso remove o sublinhado padrão de links visitados */
+    }
 
 
 `
