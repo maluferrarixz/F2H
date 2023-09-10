@@ -1,4 +1,4 @@
-import {ButtonContainer, FormContainer, FormForm, LabelContainer, InputContainer } from "./styled"
+import { Button, FormContainer, FormForm, LabelContainer, InputContainer } from "./styled"
 import { Link } from "react-router-dom"
 
 function SectionAnother(){
@@ -17,14 +17,15 @@ function SectionAnother(){
     </FormContainer>
     <FormContainer>
                 <FormForm>
-                <Button>
-                <Link to= "/Formulario2">Próximo
+                <ButtonNext>
+                <Link to= "/Formulario2">   
+                    Próximo
                 </Link>
-                </ButtonContainer>
+                </ButtonNext>
                 </FormForm>
             </FormContainer>
 
-</>
+        </>
     )
 }
 export default SectionAnother
