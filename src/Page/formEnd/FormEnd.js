@@ -1,5 +1,7 @@
 import { ImgContainer, TextContainer, TittleContainer, Img, FormContainer, FormForm, Button} from "./Styled"
 import FormEnd from "../../Assets/FormEnd.png"
+import { Link } from "react-router-dom"
+
 
 function formEnd(){
 
@@ -12,7 +14,11 @@ function formEnd(){
         </ImgContainer>
         <FormContainer>
                 <FormForm>
-                <Button>Próximo</Button>
+                <Button>
+                <Link to= "/Feed">   
+                Próximo
+                </Link>
+                </Button>
                 </FormForm>
         </FormContainer>
         </>

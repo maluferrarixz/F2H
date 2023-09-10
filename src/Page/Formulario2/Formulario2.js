@@ -44,7 +44,7 @@ function Formulario1(){
             <FormContainer>
                 <FormForm>
                 <Button>
-                <Link to= "/formEnd">   
+                <Link to= "/FormEnd">   
                     Próximo
                 </Link>
                 </Button>

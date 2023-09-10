@@ -1,4 +1,4 @@
-import { Button, FormContainer, FormForm, LabelContainer, InputContainer } from "./styled"
+import { ButtonNext, FormContainer, FormForm, LabelContainer, InputContainer } from "./styled"
 import { Link } from "react-router-dom"
 
 function SectionAnother(){

@@ -3,8 +3,9 @@ import Home from "../home/Home";
 import Login from "../Login/Login";
 import Formulario1 from "../Formulario1/Formulario1"
 import Formulario2 from "../Formulario2/Formulario2"
-import FormEnd from "../FormEnd/FormEnd"
 import Cadastro from "../cadastro/Cadastro"
+import FormEnd from "../../Page/FormEnd/FormEnd"
+import Feed from "../Feed/Feed";
 
 function Rotas(){
 
@@ -18,6 +19,7 @@ function Rotas(){
                 <Route path = "formulario1" element={<Formulario1/>}/>
                 <Route path = "formulario2" element={<Formulario2/>}/>
                 <Route path = "FormEnd" element={<FormEnd/>}/>
+                <Route path = "Feed" element={<Feed/>}/>
         </Routes>  
         </BrowserRouter>
     )
