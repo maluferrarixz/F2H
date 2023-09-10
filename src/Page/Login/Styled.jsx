@@ -61,8 +61,16 @@ export const FormForm = styled.button`
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; 
 
+`
+export const SignUp = styled.a`
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:5vh;    
+    
+    
     a:visited {
-        color: inherit; /* Isso faz com que o link adote a cor do seu elemento pai */
-        text-decoration: none; /* Isso remove o sublinhado padrão de links visitados */
+        color: purple; /* Isso faz com que o link adote a cor do seu elemento pai */
     }
-    `
+
+`

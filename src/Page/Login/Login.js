@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
-import { TituloHeader, FormContainer,FormLabel, FormInput, FormForm } from "./Styled"
+import { FormContainer,FormLabel, FormInput, FormForm, SignUp } from "./Styled"
+import TituloHeader from "../../components/Header/Header"
 
 function Login(){
  
     return (
         <>
-        <TituloHeader>Log In</TituloHeader>
+        <TituloHeader/>
         <FormContainer>
                 <FormLabel for ="usuario">User Name
                 <FormInput type="text" id="usuario" placeholder="Digite seu User Name"/>
@@ -18,6 +19,11 @@ function Login(){
                     </Link>
                 </FormForm>
         </FormContainer>
+            <SignUp>
+            <Link to= "/Cadastro">
+            Não tem conta? Se inscreva
+            </Link>
+            </SignUp>
         </>
     )
 }

@@ -1,12 +1,11 @@
-import { TituloHeader } from "./styles"
+import { TituloHeader } from "./styled"
 
 function Header(){
 
     return(
 
         <TituloHeader>
-            Sign In
-            {/* cadastrar */}
+            Sign Up
         </TituloHeader>
     )
 }

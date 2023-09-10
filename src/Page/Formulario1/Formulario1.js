@@ -1,5 +1,5 @@
-import { ButtonContainer, FormContainer, FormForm, InputContainer, LabelContainer, TextContainer, TittleContainer } from "./Styled"
-import { Link } from "react-router-dom"
+import { ButtonContainer, FormContainer, FormForm,  TextContainer, TittleContainer } from "./Styled"
+import SectionAnother from "../../components/SectionAnother/SectionAnother"
 
 function Formulario1(){
 
@@ -20,24 +20,7 @@ function Formulario1(){
                 <ButtonContainer>Forró</ButtonContainer>
             </FormForm>
            </FormContainer>
-           <FormContainer>
-            <FormForm>
-                <LabelContainer class="Tittle">Se for outro, digite qual!</LabelContainer>
-              </FormForm>  
-            </FormContainer>
-            <FormContainer>
-            <FormForm>
-            <InputContainer type="text" class="input" placeholder="Digite o estilo de dança!"></InputContainer>
-            </FormForm>
-            </FormContainer>
-            <FormContainer>
-                <FormForm>
-                <ButtonContainer>
-                <Link to= "/Formulario2">Próximo
-                </Link>
-                </ButtonContainer>
-                </FormForm>
-            </FormContainer>
+            <SectionAnother/>
         </>
     )
 }

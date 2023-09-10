@@ -1,11 +1,11 @@
-
-import { TituloHeader, FormContainer,FormLabel, FormInput, FormForm } from "./styled"
+import TituloHeader from "../../components/Header2/Header"
+import {  FormContainer,FormLabel, FormInput, FormForm } from "./styled"
 
 function Cadastro(){
 
     return (
         <>
-        <TituloHeader>Cadastre-se</TituloHeader>
+        <TituloHeader/>
         <FormContainer>
                 <FormLabel for ="usuario">User name
                 <FormInput type="text" id="usuario" placeholder="Digite seu User Name"/>
