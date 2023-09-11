@@ -6,6 +6,8 @@ import Formulario2 from "../Formulario2/Formulario2"
 import Cadastro from "../cadastro/Cadastro"
 import FormEnd from "../../Page/FormEnd/FormEnd"
 import Feed from "../Feed/Feed";
+import MenuFeed from "../../components/MenuFeed/MenuFeed"
+import NewForm from "../../Page/NewForm/NewForm"
 
 function Rotas(){
 
@@ -20,6 +22,8 @@ function Rotas(){
                 <Route path = "formulario2" element={<Formulario2/>}/>
                 <Route path = "FormEnd" element={<FormEnd/>}/>
                 <Route path = "Feed" element={<Feed/>}/>
+                <Route path = "MenuFeed" element={<MenuFeed/>}/>
+                <Route path = "NewForm" element={<NewForm/>}/>
         </Routes>  
         </BrowserRouter>
     )

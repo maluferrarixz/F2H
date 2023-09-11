@@ -24,23 +24,26 @@ export const FooterMenuFeed = styled.footer`
 
 `
 export const FormButtonFooter = styled.button`
-    
+    margin-left:4vh;
 `
 export const FormButtonImgFooter = styled.img`
     width:7vw;
 
 `
 export const PublicButtonFooter = styled.button`
-
 `
+
 export const PublicButtonImgFooter = styled.img`
     width:15vw;
     margin-top:5px;
+    z-index: 1;
     
 
 `
 export const PublicButtonTextFooter = styled.p`
     color:white;
+    z-index: 2;
+
 
 `
 
@@ -48,5 +51,12 @@ export const ProfileButtonFooter = styled.button`
 
 `
 export const ProfileButtonImgFooter = styled.img`
-    width:8vw;
+    width:10vw;
+`
+
+export const NewFormButtonFooter = styled.button`
+
+`
+export const NewFormImgButtonFooter = styled.img`
+    width:12vw;
 `
