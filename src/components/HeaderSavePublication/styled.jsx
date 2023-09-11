@@ -20,7 +20,7 @@ export const ButtonHeader = styled.button`
     background:none;
     border: #ffffff;
     margin-top: 5vh;
-    margin-left:3vh;
+    margin-left:4vh;
 `
 export const ImgButton = styled.img`
     width:09vw;
@@ -28,8 +28,8 @@ export const ImgButton = styled.img`
 
 export const TextBetweenButton = styled.p`
 
-    font-size:12px;
-    width:25vh;
+    font-size:15px;
+    width:35vh;
     margin-top: 6vh;
     font-family: 'Poppins', sans-serif;   
     align-items:center;

@@ -24,7 +24,6 @@ export const FooterMenuFeed = styled.footer`
 
 `
 export const FormButtonFooter = styled.button`
-    margin-left:4vh;
 `
 export const FormButtonImgFooter = styled.img`
     width:7vw;

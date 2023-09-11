@@ -8,6 +8,7 @@ import FormEnd from "../../Page/FormEnd/FormEnd"
 import Feed from "../Feed/Feed";
 import MenuFeed from "../../components/MenuFeed/MenuFeed"
 import NewForm from "../../Page/NewForm/NewForm"
+import SavePublication from "../SavePublication/SavePublication";
 
 function Rotas(){
 
@@ -24,6 +25,7 @@ function Rotas(){
                 <Route path = "Feed" element={<Feed/>}/>
                 <Route path = "MenuFeed" element={<MenuFeed/>}/>
                 <Route path = "NewForm" element={<NewForm/>}/>
+                <Route path = "SavePublication" element={<SavePublication/>}/>
         </Routes>  
         </BrowserRouter>
     )

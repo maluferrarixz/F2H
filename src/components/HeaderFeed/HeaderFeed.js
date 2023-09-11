@@ -1,6 +1,7 @@
 import { ButtonHeader, ColumnDiv, ImgButton, SectionHeader, TextBetweenButton } from "./styled"
 import FilterFeed from "../../Assets/FilterFeed.png"
 import PublicSave from "../../Assets/PublicSaveFeed.png"
+import { Link } from 'react-router-dom';
 
 function HeaderFeed(){
 
@@ -18,7 +19,9 @@ function HeaderFeed(){
        </ColumnDiv>
        <ColumnDiv>
         <ButtonHeader>
-        <ImgButton src ={PublicSave}/>
+        <Link to ="/SavePublication">
+        <ImgButton src ={PublicSave}/> 
+        </Link>
         </ButtonHeader>
         </ColumnDiv>
         </SectionHeader>

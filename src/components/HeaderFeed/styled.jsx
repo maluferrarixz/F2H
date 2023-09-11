@@ -35,5 +35,4 @@ export const TextBetweenButton = styled.p`
     align-items:center;
 
 
-
 `

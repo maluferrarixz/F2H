@@ -1,5 +1,6 @@
-import {SectionHeader, ColumnDiv, ButtonHeader, ImgButton} from "./styled"
+import {TextBetweenButton, SectionHeader, ColumnDiv, ButtonHeader, ImgButton} from "./styled"
 import BackToFeed from "../../Assets/backTofeed.png"
+import { Link } from 'react-router-dom';
 
 function HeaderSavePublication (){
 
@@ -8,7 +9,9 @@ function HeaderSavePublication (){
         <SectionHeader>
         <ColumnDiv>
        <ButtonHeader>
+        <Link to ="/Feed">
         <ImgButton src={BackToFeed}/>
+        </Link>
        </ButtonHeader>
        </ColumnDiv>
        <ColumnDiv>
