@@ -1,6 +1,7 @@
 import { ButtonHeader, ColumnDiv, ImgButton, SectionHeader, TextBetweenButton } from "./styled"
-import FilterFeed from "../../Assets/FilterFeed.png"
+// import FilterFeed from "../../Assets/FilterFeed.png"
 import PublicSave from "../../Assets/PublicSaveFeed.png"
+import DrawerFeed from "../../components/DrawerFeed/DrawerFeed"
 import { Link } from 'react-router-dom';
 
 function HeaderFeed(){
@@ -11,7 +12,7 @@ function HeaderFeed(){
         <SectionHeader>
         <ColumnDiv>
        <ButtonHeader>
-        <ImgButton src={FilterFeed}/>
+        <DrawerFeed/>
        </ButtonHeader>
        </ColumnDiv>
        <ColumnDiv>
