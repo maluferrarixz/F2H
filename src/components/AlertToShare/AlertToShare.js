@@ -11,7 +11,7 @@ import {
 
   } from '@chakra-ui/react'
   import React from "react";
-import SendInteraction from "../../Assets/Send.png"
+import SendInteraction from "../../Assets/SendCardFeed.svg"
 import { ImgFilter } from './styled';
 
 

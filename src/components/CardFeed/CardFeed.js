@@ -1,8 +1,8 @@
 import { SavePublicationImgCard, SavePublicationCard, ReadPublicImgCard, SharePublicationCard, ReadPublicCard, DivCardInteraction, ImgCard, DivImgCard, SectionCard, DivCard, DivProfileCard, ProfileImgCard, ProfileTextCard } from "./Styled"
 import HomePage from "../../Assets/ProfileImgCard.jpg"
-import WrittenPublication from "../../Assets/chatCardInteraction.svg"
+import WrittenPublication from "../../Assets/chatCard.svg"
 // import SendPublication from "../../Assets/Send.png"
-import SavePublication from "../../Assets/Subtract.png"
+import SavePublication from "../../Assets/SaveCard.svg"
 import AlertToShare from "../../components/AlertToShare/AlertToShare"
 function CardFeed(){
 

@@ -104,6 +104,5 @@ export const SavePublicationCard = styled.button`
 `
 
 export const SavePublicationImgCard = styled.img`
-    width:4vw;
-    height:2vh;
+    width:7vw;
 `
