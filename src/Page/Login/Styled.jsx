@@ -33,6 +33,8 @@ export const FormInput = styled.input`
     width:60vw;
     height: 05vh;
     margin-top:1.4vw;
+    font-family: 'Rubik', sans-serif;
+
 
     text-align: left; /* Alinhamento horizontal */
     padding-left: 10px;
@@ -60,6 +62,8 @@ export const FormForm = styled.button`
     display: flex;
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; 
+    font-family: 'Rubik', sans-serif;
+
 
 `
 export const SignUp = styled.a`

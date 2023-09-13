@@ -1,17 +1,17 @@
 import { useToast,Button } from '@chakra-ui/react'
-  import React from "react";
+import React from "react";
 import SendInteraction from "../../Assets/SendCardFeed.svg"
 import { ImgFilter } from './styled';
 
 
-function ToastExample() {
+function AlertToSave() {
   const toast = useToast()
   return (
     <Button colorScheme='teal' variant='ghost'
       onClick={() =>
         toast({
-          title: 'Republicado',
-          description: "O conteudo foi republicado em seu perfil",
+          title: 'Salvo!',
+          description: "O conteudo foi salvo na aba dos favoritos",
           status: 'success',
           duration: 9000,
           isClosable: true,
@@ -22,4 +22,4 @@ function ToastExample() {
     </Button>
   )
 }
-export default ToastExample
+export default AlertToSave

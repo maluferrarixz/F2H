@@ -30,26 +30,26 @@ import {ImgFilter} from "./styled"
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
-          <DrawerContent>
+          <DrawerContent >
             <DrawerCloseButton />
-            <DrawerHeader>Selecione o que deseja ver</DrawerHeader>
+            <DrawerHeader >Selecione o que deseja ver</DrawerHeader>
   
-            <Select colorScheme='teal' variant='ghost' placeholder='Selecione a dança'>
+            <Select style={{marginTop:"10px"}} colorScheme='teal' variant='ghost' placeholder='Selecione a dança'>
             <option value='option1'>HipHop</option>
             <option value='option2'>Jazz</option>
             <option value='option3'>Ballet</option>
             </Select>
-            <Select colorScheme='teal' variant='ghost' placeholder='Selecione a melhoria'>
+            <Select style={{marginTop:"30px"}} colorScheme='teal' variant='ghost' placeholder='Selecione a melhoria'>
             <option value='option1'>Ansiedade</option>
             <option value='option2'>Depressão</option>
             <option value='option3'>Financeiro</option>
             </Select>
   
-            <DrawerFooter>
+            <DrawerFooter style={{marginTop:"30px"}} > 
               <Button variant='outline' mr={3} onClick={onClose}>
                 Fechar
               </Button>
-              <Button colorScheme='blue'>Filtrar</Button>
+              <Button colorScheme='purple'>Filtrar</Button>
             </DrawerFooter>
           </DrawerContent>
         </Drawer>

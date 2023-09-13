@@ -4,6 +4,7 @@ import WrittenPublication from "../../Assets/chatCard.svg"
 // import SendPublication from "../../Assets/Send.png"
 import SavePublication from "../../Assets/SaveCard.svg"
 import AlertToShare from "../../components/AlertToShare/AlertToShare"
+
 function CardFeed(){
 
     return(
@@ -28,6 +29,7 @@ function CardFeed(){
             </SharePublicationCard>
             <SavePublicationCard>
             <SavePublicationImgCard src={SavePublication}/>
+            {/* <AlertToSave/> */}
             </SavePublicationCard>
         </DivCardInteraction>
         </DivCard>

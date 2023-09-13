@@ -5,7 +5,7 @@ export const FooterMenuFeed = styled.footer`
 
     width: 46.3vh;
     background-color:#d0c1dc;
-    height: 12vh;
+    height: 10vh;
     /* display: flex; */
     position: fixed;
     bottom:0;

@@ -1,15 +1,16 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Home from "../home/Home";
+import Home from "../Introduction/Home";
 import Login from "../Login/Login";
-import Formulario1 from "../Formulario1/Formulario1"
-import Formulario2 from "../Formulario2/Formulario2"
+import Formulario1 from "../Form1/Formulario1"
+import Formulario2 from "../Form2/Formulario2"
 import Cadastro from "../cadastro/Cadastro"
-import FormEnd from "../../Page/FormEnd/FormEnd"
+import FormEnd from "../../Page/formEnd/FormEnd"
 import Feed from "../Feed/Feed";
 import MenuFeed from "../../components/MenuFeed/MenuFeed"
 import NewForm from "../../Page/NewForm/NewForm"
 import SavePublication from "../SavePublication/SavePublication";
 import Profile from "../../Page/Profile/Profile"
+import NewPublic from "../../Page/NewPublic/NewPublic"
 
 function Rotas(){
 
@@ -28,6 +29,7 @@ function Rotas(){
                 <Route path = "NewForm" element={<NewForm/>}/>
                 <Route path = "SavePublication" element={<SavePublication/>}/>
                 <Route path = "Profile" element={<Profile/>}/>
+                <Route path = "NewPublic" element={<NewPublic/>}/>
         </Routes>  
         </BrowserRouter>
     )

@@ -3,17 +3,19 @@ import styled from "styled-components"
 
 export const TittleNewForm = styled.h1`
 padding-top: 05vh;
-font-weight:300;
+font-weight:900;
 color: #72567A;
 text-align:center;
 font-family: 'Rubik', sans-serif;
 display:flex;
 flex-direction:column;
+font-size:3vh;
+margin-top:4vh;
 
 `
 
 export const TextNewForm = styled.p`
-padding-left: 05vh;
+    padding-left: 05vh;
     padding-right: 05vh;
     text-align: center;
     line-height: 03vh;
@@ -21,6 +23,7 @@ padding-left: 05vh;
     margin-bottom: 03vh;
     font-family: 'Poppins', sans-serif; 
     margin-top:4vh;  
+    font-size:2vh;
 
 `
 export const DivNewForm = styled.div`

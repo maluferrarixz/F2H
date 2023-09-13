@@ -13,8 +13,9 @@ export const DivCard = styled.div`
 
     background-color: #d0c1dc;
     height: 40vh;
+    width: 80vw;
     align-items: center;
-    margin: 3vh;
+    margin: 4vh;
     border-radius: 3vh;
     overflow: hidden;
     position: relative;

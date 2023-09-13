@@ -17,7 +17,9 @@ function MenuFeed(){
         </Link>
         </FormButtonFooter>
         <PublicButtonFooter>
+        <Link to ="/NewPublic">
         <PublicButtonImgFooter src={PublicIconFeed}/>
+        </Link>
         </PublicButtonFooter>
         <ProfileButtonFooter>
         <Link to ="/Profile">
