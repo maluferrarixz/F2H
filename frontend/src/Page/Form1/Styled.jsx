@@ -28,9 +28,10 @@ export const FormContainer = styled.div`
     width: auto;
     display: flex;
     flex-direction:column;
-    /* justify-content: center; */
+    justify-content: center; 
     align-items:center;
     padding-top: 1.9vh;
+    margin-left:10vw;
 
 
 
@@ -40,6 +41,7 @@ export const FormForm = styled.form`
     grid-template-columns: repeat(2, 1fr); /* 3 colunas com largura igual */
     gap: 10px; 
     margin-bottom: 10px;
+    
 
 `
 export const ButtonContainer = styled.button`
@@ -75,9 +77,9 @@ export const LabelContainer = styled.label`
 export const InputContainer = styled.input`
     background-color: rgb(114, 86, 122, 0.1);
     border: 1px solid #ffffff;
-    height: 25vh;
+    height: 55vh;
+    width:50vh;
     border-radius: 10px;
     font-weight: 300;
-    height: 06vh;
     margin-bottom: 2vh; 
 `

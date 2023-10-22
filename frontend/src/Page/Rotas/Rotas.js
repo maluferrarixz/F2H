@@ -11,6 +11,7 @@ import NewForm from "../../Page/NewForm/NewForm"
 import SavePublication from "../SavePublication/SavePublication";
 import Profile from "../../Page/Profile/Profile"
 import NewPublic from "../../Page/NewPublic/NewPublic"
+import ConfigurationProfile from "../../Page/ConfigurationProfile/ConfigurationProfile"
 
 function Rotas(){
 
@@ -30,6 +31,7 @@ function Rotas(){
                 <Route path = "SavePublication" element={<SavePublication/>}/>
                 <Route path = "Profile" element={<Profile/>}/>
                 <Route path = "NewPublic" element={<NewPublic/>}/>
+                <Route path = "ConfigurationProfile" element={<ConfigurationProfile/>}/>
         </Routes>  
         </BrowserRouter>
     )

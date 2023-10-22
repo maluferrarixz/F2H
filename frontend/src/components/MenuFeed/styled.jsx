@@ -5,12 +5,12 @@ export const FooterMenuFeed = styled.footer`
 
     width: 46.3vh;
     background-color:#d0c1dc;
-    height: 10vh;
+    height: 8vh;
     /* display: flex; */
     position: fixed;
     bottom:0;
     left:0;
-    border-radius:24px;
+    border-radius: 19.045px 19.045px 0px 0px;
 
 
     display: flex;
@@ -26,14 +26,14 @@ export const FooterMenuFeed = styled.footer`
 export const FormButtonFooter = styled.button`
 `
 export const FormButtonImgFooter = styled.img`
-    width:7vw;
+    width:6vw;
 
 `
 export const PublicButtonFooter = styled.button`
 `
 
 export const PublicButtonImgFooter = styled.img`
-    width:15vw;
+    width:13vw;
     margin-top:5px;
     z-index: 1;
     
@@ -45,17 +45,25 @@ export const PublicButtonTextFooter = styled.p`
 
 
 `
-
 export const ProfileButtonFooter = styled.button`
 
 `
 export const ProfileButtonImgFooter = styled.img`
-    width:10vw;
+    width:7vw;
 `
 
 export const NewFormButtonFooter = styled.button`
 
 `
 export const NewFormImgButtonFooter = styled.img`
-    width:12vw;
+    width:7vw;
+`
+export const ConfigurationButtonFooter = styled.button`
+
+`
+
+export const ConfigurationImgButtonFooter = styled.img`
+    width:7vw;    
+    margin-top:5px;
+    z-index: 1;
 `

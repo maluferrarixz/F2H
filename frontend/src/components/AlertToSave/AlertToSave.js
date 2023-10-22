@@ -13,7 +13,7 @@ function AlertToSave() {
           title: 'Salvo!',
           description: "O conteudo foi salvo na aba dos favoritos",
           status: 'success',
-          duration: 9000,
+          duration: 5000,
           isClosable: true,
         })
       }

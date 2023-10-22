@@ -30,7 +30,7 @@ export const FormContainer = styled.div`
     flex-direction:column;
     /* justify-content: center; */
     align-items:center;
-    padding-top: 1.9vh;
+    padding-top: 2.9vh;
 
 
 
@@ -87,9 +87,13 @@ export const LabelContainer = styled.label`
 export const InputContainer = styled.input`
     background-color: rgb(114, 86, 122, 0.1);
     border: 1px solid #ffffff;
-    height: 45px;
+    height: 55vh;
+    width:30vh;
     border-radius: 10px;
     font-weight: 300;
     height: 06vh;
     margin-bottom: 2vh; 
+
+    text-align: left; /* Alinhamento horizontal */
+    padding-left: 10px;
 `

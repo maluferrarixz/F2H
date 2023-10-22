@@ -25,7 +25,7 @@ export const InputNewPublic = styled.input`
     border-radius: 10px;
     font-weight: 300;
     width:70vw;
-    height: 08vh;
+    height: 05vh;
     margin-top:1.4vw;
     font-family: 'Rubik', sans-serif;
 

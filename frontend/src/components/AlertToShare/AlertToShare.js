@@ -13,7 +13,7 @@ function ToastExample() {
           title: 'Republicado',
           description: "O conteudo foi republicado em seu perfil",
           status: 'success',
-          duration: 9000,
+          duration: 500,
           isClosable: true,
         })
       }

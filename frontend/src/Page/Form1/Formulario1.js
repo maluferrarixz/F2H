@@ -1,5 +1,6 @@
-import { ButtonContainer, FormContainer, FormForm,  TextContainer, TittleContainer } from "./Styled"
+import { FormContainer, FormForm,  TextContainer, TittleContainer } from "./Styled"
 import SectionAnother from "../../components/SectionAnother/SectionAnother"
+import { Checkbox } from '@chakra-ui/react'
 
 function Formulario1(){
 
@@ -10,14 +11,12 @@ function Formulario1(){
         <TextContainer>De início, escolha as danças que você gostaria de saber mais ou ver em seu feed!</TextContainer>
             <FormContainer>
             <FormForm>
-                <ButtonContainer>Hiphop</ButtonContainer>
-                <ButtonContainer>Jazz</ButtonContainer>
-                <ButtonContainer>Funk</ButtonContainer>
-                <ButtonContainer>Ballet</ButtonContainer>
-                <ButtonContainer>Dança do vêntre</ButtonContainer>
-                <ButtonContainer>Contemporâneo</ButtonContainer>
-                <ButtonContainer>Samba</ButtonContainer>
-                <ButtonContainer>Forró</ButtonContainer>
+            <Checkbox  size='lg' colorScheme='purple' >Ansiedade</Checkbox>
+            <Checkbox  size='lg' colorScheme='purple' >Ballet</Checkbox>
+            <Checkbox  size='lg' colorScheme='purple' >Contemporâneo</Checkbox>
+            <Checkbox  size='lg' colorScheme='purple' >Jazz</Checkbox>
+            <Checkbox  size='lg' colorScheme='purple' >Dança do vêntre</Checkbox>
+            <Checkbox  size='lg' colorScheme='purple' >Funk</Checkbox>
             </FormForm>
            </FormContainer>
             <SectionAnother/>

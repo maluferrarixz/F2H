@@ -86,8 +86,8 @@ export const ReadPublicCard = styled.button`
 `
 export const ReadPublicImgCard = styled.img`
 
-    width:6vw;
-    height:3vh;
+    width:8vw;
+    height:9vh;
     color:#ffffff;
 `
 

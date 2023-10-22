@@ -1,5 +1,7 @@
 import { Button, ButtonContainer, FormContainer, FormForm, InputContainer, LabelContainer, TextContainer, TittleContainer } from "./Styled"
 import { Link } from "react-router-dom"
+import { Checkbox } from '@chakra-ui/react'
+
 
 function Formulario1(){
 
@@ -9,26 +11,22 @@ function Formulario1(){
         <TextContainer>Agora que optou suas escolhas para dança, diga que problemas estão relacionados a sua melhora!</TextContainer>
             <FormContainer>
             <FormForm>
-                <ButtonContainer>
-                    <Button>Ansiedade</Button>
-                    <Button>Baixa Autoestima</Button>
-                </ButtonContainer>
-                <ButtonContainer>
-                    <Button>Fobia social</Button>
-                    <Button>Estresse</Button>
-                </ButtonContainer>
-                <ButtonContainer>
-                    <Button>Vergonha</Button>
-                    <Button>Irritação</Button>
-                </ButtonContainer>
-                <ButtonContainer>
-                    <Button>Sintomas físicos</Button>
-                    <Button>Perfeccionismo</Button>
-                </ButtonContainer>
-                <ButtonContainer>
-                    <Button>Impaciência</Button>
-                    <Button>Financeiro</Button>
-                </ButtonContainer>
+            <ButtonContainer>
+            <Checkbox  size='lg' colorScheme='purple' >Ansiedade</Checkbox>
+            <Checkbox  size='lg' colorScheme='purple' >Depressão</Checkbox>
+            </ButtonContainer>
+            <ButtonContainer>
+            <Checkbox  size='lg' colorScheme='purple' >Baixa autoestima</Checkbox>
+            <Checkbox  size='lg' colorScheme='purple' >Fobia Social</Checkbox>
+            </ButtonContainer>
+            <ButtonContainer>
+            <Checkbox  size='lg' colorScheme='purple' >Vergonha</Checkbox>
+            <Checkbox  size='lg' colorScheme='purple' >Perfeccionismo</Checkbox>
+            </ButtonContainer>
+            <ButtonContainer>
+            <Checkbox  size='lg' colorScheme='purple' >Irritação</Checkbox>
+            <Checkbox  size='lg' colorScheme='purple' >Distorção</Checkbox>
+            </ButtonContainer>
             </FormForm>
            </FormContainer>
            <FormContainer>
@@ -38,7 +36,7 @@ function Formulario1(){
             </FormContainer>
             <FormContainer>
             <FormForm>
-            <InputContainer type="text" class="input" placeholder="Digite o estilo de dança!"></InputContainer>
+            <InputContainer type="text" class="input" placeholder="Digite o seu problema"></InputContainer>
             </FormForm>
             </FormContainer>
             <FormContainer>
