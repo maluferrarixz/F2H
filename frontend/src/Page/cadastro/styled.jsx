@@ -17,7 +17,7 @@ export const TituloHeader = styled.header`
     flex-direction:column;
 
 `
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
     width: 80%;
     padding-top: 7vh;
     display: flex;

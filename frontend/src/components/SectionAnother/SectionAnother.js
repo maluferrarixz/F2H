@@ -7,12 +7,12 @@ function SectionAnother(){
         <>
     <FormContainer>
     <FormForm>
-        <LabelContainer class="Tittle">Se for outro, digite qual!</LabelContainer>
+        <LabelContainer>Se for outro, digite qual!</LabelContainer>
     </FormForm>  
     </FormContainer>
     <FormContainer>
     <FormForm>
-    <InputContainer type="text" class="input" placeholder="Digite o estilo de dança!"></InputContainer>
+    <InputContainer type="text" placeholder="Digite o estilo de dança!"></InputContainer>
     </FormForm>
     </FormContainer>
     <FormContainer>

@@ -31,7 +31,7 @@ function Formulario1(){
            </FormContainer>
            <FormContainer>
             <FormForm>
-                <LabelContainer for="Outro" class="Tittle">Se for outro, digite qual!</LabelContainer>
+                <LabelContainer>Se for outro, digite qual!</LabelContainer>
               </FormForm>  
             </FormContainer>
             <FormContainer>

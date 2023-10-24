@@ -14,14 +14,17 @@ function ConfigurationProfile(){
                 <ImgDivProfile>
               <ImgProfile src={ProfileImg} />
                 </ImgDivProfile> 
-                <FormLabel for ="usuario">User name
+                <FormLabel >User name
                 <FormInput type="text" id="usuario" placeholder="Maria Luiza Ferrari"/>
                 </FormLabel>
-                <FormLabel for ="usuario">Senha
+                <FormLabel >Senha
                 <FormInput type="text" id="usuario" placeholder="********"/>
                 </FormLabel>
-                <FormLabel for ="usuario">Email 
+                <FormLabel>Email 
                 <FormInput type="text" id="usuario" placeholder="marialuizinha167@gmail.com"/>
+                </FormLabel>
+                <FormLabel>Biografia do Perf.
+                <FormInput type="text" id="usuario" placeholder="Oii, sou a Malu amo dançar e cantar!!"/>
                 </FormLabel>
                 <FormForm input id='envio' type="submit" value="Entrar">Salvar alterações</FormForm>
         <MenuFeed/>

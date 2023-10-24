@@ -2,15 +2,21 @@
 
 // Importar o pacote express (servidor)
 const express = require('express');
-// Importar o pacote dotenv, gerenciador de variáveis de ambiente
-const dotenv = require('dotenv').config();
-
-const userRouter = require('../src/routes/usersRouter');
+// Responsável por lidar com requisições externas
+const cors = require('cors');
+// Importar as rotas para serem executadas na aplicação
+const userRouter = require('./routes/usersRouter');
+const loginRouter = require('./routes/loginRouter');
 
 // Instanciar o express na variável app
 const app = express();
-// Setar a porta do servidor, a parir do arquivo .env ou assumir 3005
-app.set('port', process.env.PORT || 3005);
-app.use('api', userRouter);
+app.use(express.json());
+// Habilitar o recebimento de requests em formato JSON
+app.use(cors())
+// Habilitar as rotas na aplicação
+app.use('/api', userRouter);
+app.use('/api/auth', loginRouter);
+// Setar a porta do servidor, a parir do arquivo .env
+app.set('port', process.env.PORT || 1903);
 
 module.exports = app;

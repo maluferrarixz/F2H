@@ -14,7 +14,7 @@ import {
 
 import React from 'react';
 
-  function PublicHashtagDance() {
+  function PublicHashtagProblem() {
     const [isEditing, setIsEditing] = useBoolean()
     const [color, setColor] = React.useState('purple')
   
@@ -34,7 +34,7 @@ import React from 'react';
               w='30vh'
               display='inline-flex'
               isDisabled={!isEditing}
-              defaultValue='Dança que abordou na postagem:'
+              defaultValue='Problema que abordou na postagem'
             />
           </PopoverAnchor>
   
@@ -47,13 +47,13 @@ import React from 'react';
   
         <PopoverContent>
           <PopoverBody>
-            Selecione a dança que abordou na postagem:
+            Selecione o problema que abordou na postagem:
             <RadioGroup value={color} onChange={(newColor) => setColor(newColor)}>
-              <Radio value='HipHop'>Hiphop</Radio>
-              <Radio value='Jazz'>Jazz</Radio>
-              <Radio value='ballet'>ballet</Radio>
-              <Radio value='Contemporaneo'>Contemporaneo</Radio>
-              <Radio value='dança do ventre'>Dança do ventre</Radio>
+              <Radio value='HipHop'>Depressão</Radio>
+              <Radio value='Jazz'>Ansiedade</Radio>
+              <Radio value='ballet'>baixa autoestima</Radio>
+              <Radio value='Contemporaneo'>perfeccionismo</Radio>
+              <Radio value='dança do ventre'>Problemas com corpo</Radio>
             </RadioGroup>
           </PopoverBody>
         </PopoverContent>
@@ -61,4 +61,4 @@ import React from 'react';
     )
   }
 
-export default PublicHashtagDance
+export default PublicHashtagProblem

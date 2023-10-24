@@ -2,6 +2,7 @@ import HeaderNewPublic from "../../components/HeaderNewPublic/HeaderNewPublic"
 import { InputImg, DivPage, NewImgDiv, InputNewPublic, ButtonNewPublic } from "./styled"
 import MenuFeed from "../../components/MenuFeed/MenuFeed"
 import PublicHashtagDance from "../../components/PublicHashtagDance/PublicHashtagDance"
+import PublicHashtagProblem from "../../components/PublicHashtagProblem/PublicHashtagProblem"
 
 
 function NewPublic(){
@@ -17,6 +18,7 @@ function NewPublic(){
         </NewImgDiv>
         <InputNewPublic placeholder="DEIXE AQUI SUA MENSAGEM!"/>        
         <PublicHashtagDance/>
+        <PublicHashtagProblem/>
         <ButtonNewPublic type="submit">Publicar
         </ButtonNewPublic>
         </DivPage>
