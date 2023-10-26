@@ -23,7 +23,7 @@ function Cadastro(){
       };
       await api.post("/user/create", data);
       alert("Usuário criado com sucesso!");
-
+      navigate('/ConfigurationProfile', { state: { email, password, name } });
       navigate("/home")
     };
   

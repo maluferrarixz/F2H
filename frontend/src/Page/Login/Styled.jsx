@@ -23,7 +23,7 @@ export const FormContainer = styled.form`
     display: flex;
     align-items:center;
     flex-direction:column;
-    padding-left:10vw;
+    padding-left:20vw;
 `
 export const FormInput = styled.input`
     background-color: #dcd3d3;

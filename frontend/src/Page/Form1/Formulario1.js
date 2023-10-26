@@ -11,7 +11,7 @@ function Formulario1(){
         <TextContainer>De início, escolha as danças que você gostaria de saber mais ou ver em seu feed!</TextContainer>
             <FormContainer>
             <FormForm>
-            <Checkbox  size='lg' colorScheme='purple' >Ansiedade</Checkbox>
+            <Checkbox  size='lg' colorScheme='purple' >HipHop</Checkbox>
             <Checkbox  size='lg' colorScheme='purple' >Ballet</Checkbox>
             <Checkbox  size='lg' colorScheme='purple' >Contemporâneo</Checkbox>
             <Checkbox  size='lg' colorScheme='purple' >Jazz</Checkbox>

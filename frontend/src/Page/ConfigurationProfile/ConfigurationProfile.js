@@ -6,7 +6,6 @@ import ProfileImg from "../../Assets/ProfileImgCard.jpg"
 
 
 function ConfigurationProfile(){
-
     return(
        <>
        <HeaderConfiguration/>
@@ -18,10 +17,14 @@ function ConfigurationProfile(){
                 <FormInput type="text" id="usuario" placeholder="Maria Luiza Ferrari"/>
                 </FormLabel>
                 <FormLabel >Senha
-                <FormInput type="text" id="usuario" placeholder="********"/>
+                <FormInput 
+                type="senha" 
+                />
                 </FormLabel>
                 <FormLabel>Email 
-                <FormInput type="text" id="usuario" placeholder="marialuizinha167@gmail.com"/>
+                <FormInput 
+                type="email" 
+                placeholder="marialuizinha167@gmail.com"/>
                 </FormLabel>
                 <FormLabel>Biografia do Perf.
                 <FormInput type="text" id="usuario" placeholder="Oii, sou a Malu amo dançar e cantar!!"/>

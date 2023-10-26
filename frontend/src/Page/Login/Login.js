@@ -10,7 +10,8 @@ function Login () {
 
     const [email, setEmail] = useState("");
     const [senha, setPassword] = useState("");
-    const [setUser] = useState(null);
+    const [user, setUser] = useState(null);
+
     // const { signIn, signed } = useContext(AuthContext);
     
     const handleSubmit = async (e) => {
@@ -19,21 +20,24 @@ function Login () {
         email,
         senha
       };
-
       try {
         const response = await api.post("/auth/login", data);
+        console.log(response.data); // Adicione esta linha para depuração
         if (response.data.error) {
           alert(response.data.error);
+        } else if (response.data.data && response.data.data.email) {
+          localStorage.setItem("@Auth:user", JSON.stringify(response.data.data.email));
+          localStorage.setItem("@Auth:token", response.data.data.token);
+         setUser(response.data.data);
+          navigate("/Feed");
         } else {
-          localStorage.setItem("@Auth:user", JSON.stringify(response.data.data[0].email));
-          localStorage.setItem("@Auth:token", response.data.data[0].token)
-          setUser(response.data.data[0]);
-
-          navigate("/home")
+          console.error("Dados de resposta ausentes ou incorretos.");
+          alert("Login não encontrado!");
         }
       } catch (error) {
-        console.log(error);
-      };
+        console.error(error);
+      }
+                  
 
     }
     return (
