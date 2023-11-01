@@ -18,7 +18,7 @@ function Login () {
       e.preventDefault();
       const data = {
         email,
-        senha
+        senha,
       };
       try {
         const response = await api.post("/auth/login", data);
@@ -26,8 +26,9 @@ function Login () {
         if (response.data.error) {
           alert(response.data.error);
         } else if (response.data.data && response.data.data.email) {
-          localStorage.setItem("@Auth:user", JSON.stringify(response.data.data.email));
-          localStorage.setItem("@Auth:token", response.data.data.token);
+          localStorage.setItem("user", JSON.stringify(response.data.data.email));
+          localStorage.setItem("id", JSON.stringify(response.data.data.id_user));
+          localStorage.setItem("token", response.data.data.token);
          setUser(response.data.data);
           navigate("/Feed");
         } else {

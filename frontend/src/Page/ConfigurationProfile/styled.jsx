@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
     width: 80%;
     display: flex;
     align-items:center;
@@ -23,7 +23,6 @@ export const FormInput = styled.input`
     text-align: left; /* Alinhamento horizontal */
     padding-left: 10px;
 
-  }
   padding-bottom: 6px;  
   font-weight: 700;
   border-width: 3px;

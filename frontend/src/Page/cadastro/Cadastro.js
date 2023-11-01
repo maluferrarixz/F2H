@@ -1,19 +1,41 @@
 import TituloHeader from "../../components/Header2/Header"
 import {  FormContainer,FormLabel, FormInput, FormForm } from "./styled"
 // import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { api } from "../../services/api";
 import {  useNavigate } from 'react-router-dom';
 
 
 function Cadastro(){
   
-  const navigate = useNavigate()
-    const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
-  
+  useEffect(() => {
+    // Verifique se existem valores no localStorage e carregue-os
+    const savedName = localStorage.getItem("name");
+    const savedPassword = localStorage.getItem("password");
+    const savedEmail = localStorage.getItem("email");
+
+    if (savedName) {
+      setName(savedName);
+    }
+    if (savedPassword) {
+      setPassword(savedPassword);
+    }
+    if (savedEmail) {
+      setEmail(savedEmail);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Salve os valores das variáveis no localStorage sempre que houver alterações
+    localStorage.setItem("name", name);
+    localStorage.setItem("password", password);
+    localStorage.setItem("email", email);
+  }, [name, password, email]);
     const handleSubmit = async (e) => {
       e.preventDefault();
       const data = {
@@ -23,7 +45,6 @@ function Cadastro(){
       };
       await api.post("/user/create", data);
       alert("Usuário criado com sucesso!");
-      navigate('/ConfigurationProfile', { state: { email, password, name } });
       navigate("/home")
     };
   
@@ -61,5 +82,5 @@ function Cadastro(){
         </FormContainer>
         </>
     )
-}
+  }
 export default Cadastro

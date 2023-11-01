@@ -7,6 +7,7 @@ const cors = require('cors');
 // Importar as rotas para serem executadas na aplicação
 const userRouter = require('./routes/usersRouter');
 const loginRouter = require('./routes/loginRouter');
+const findUserRouter = require('./routes/findUserRouter');
 
 // Instanciar o express na variável app
 const app = express();
@@ -16,6 +17,7 @@ app.use(cors())
 // Habilitar as rotas na aplicação
 app.use('/api', userRouter);
 app.use('/api/auth', loginRouter);
+app.use('/find', findUserRouter);
 // Setar a porta do servidor, a parir do arquivo .env
 app.set('port', process.env.PORT || 1903);
 
