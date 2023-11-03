@@ -3,7 +3,7 @@ import MenuFeed from "../../components/MenuFeed/MenuFeed"
 import {  FormContainer,FormLabel, FormInput, FormForm } from "./styled"
 import {ImgDivProfile, ImgProfile} from "../../Page/Profile/styled"
 import ProfileImg from "../../Assets/ProfileImgCard.jpg"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useFetchData } from "react";
 import axios from "axios";
 import { api } from "../../services/api";
 // import {  useNavigate } from 'react-router-dom';
@@ -23,20 +23,17 @@ function ConfigurationProfile(){
         const formData = {
             id: id
         };
+    axios.post(`/find/findUser`, formData) 
+        .then(function (response){
+    setNome(response.data.data.nome);                 
+    setEmail(response.data.data.email);                 
+    setSenha(response.data.data.senha);             
+})             
+    .catch(function (error) {   
+          console.log(error);             
+});     }   }, [id]); 
 
-        axios.post(`/find/findUser`, formData)
-            .then(function (response) {
-                setNome(response.data.data.nome);
-                setEmail(response.data.data.email);
-                setSenha(response.data.data.senha);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
-  }, [id]);
-
-  const fetchData = async () => {
+  const useFetchData = async () => {
     const id = localStorage.getItem('@Auth:id');
     if (id) {
       try {
@@ -45,12 +42,9 @@ function ConfigurationProfile(){
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
-    } else {
-      alert('deu ruim dnv');
-    }
   };
     useEffect(() => {
-    fetchData();
+    useFetchData();
   }, []);
 
   const handleSave = (nome, email, senha) => {
@@ -110,5 +104,6 @@ function ConfigurationProfile(){
         {/* ))} */}
     </> 
   )
+}
 }
 export default ConfigurationProfile

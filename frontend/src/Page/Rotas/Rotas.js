@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Home from "../Introduction/Home";
 import Login from "../Login/Login";
 import Formulario1 from "../Form1/Formulario1"
@@ -15,12 +15,18 @@ import ConfigurationProfile from "../../Page/ConfigurationProfile/ConfigurationP
 
 function Rotas(){
 
+    const PrivateRoutes = ({children, redirectTo}) => {
+        const isAuthenticated = localStorage.getItem("@Auth:token") !== null;
+        console.log('isAuth', isAuthenticated)
+        return isAuthenticated ? children : <Navigate to={redirectTo}/>
+      }
+    
     return(
 
         <BrowserRouter>
         <Routes>
                 <Route index element={<Login/>}/>
-                <Route path = "home" element={<Home/>}/>
+                {/* <Route path = "home" element={<Home/>}/> */}
                 <Route path = "Cadastro" element={<Cadastro/>}/>
                 <Route path = "formulario1" element={<Formulario1/>}/>
                 <Route path = "formulario2" element={<Formulario2/>}/>
@@ -32,6 +38,7 @@ function Rotas(){
                 <Route path = "Profile" element={<Profile/>}/>
                 <Route path = "NewPublic" element={<NewPublic/>}/>
                 <Route path = "ConfigurationProfile" element={<ConfigurationProfile/>}/>
+                <Route path="home" element={<PrivateRoutes redirectTo='/'><Home/></PrivateRoutes>}/>
         </Routes>  
         </BrowserRouter>
     )

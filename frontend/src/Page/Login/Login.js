@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { api } from "../../services/api";
 
 function Login () {
+
     const navigate = useNavigate()
 
     const [email, setEmail] = useState("");
@@ -19,6 +20,7 @@ function Login () {
       const data = {
         email,
         senha,
+        user
       };
       try {
         const response = await api.post("/auth/login", data);
