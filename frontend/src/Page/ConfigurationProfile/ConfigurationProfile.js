@@ -3,66 +3,74 @@ import MenuFeed from "../../components/MenuFeed/MenuFeed"
 import {  FormContainer,FormLabel, FormInput, FormForm } from "./styled"
 import {ImgDivProfile, ImgProfile} from "../../Page/Profile/styled"
 import ProfileImg from "../../Assets/ProfileImgCard.jpg"
-import { useState, useEffect, useFetchData } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { api } from "../../services/api";
 // import {  useNavigate } from 'react-router-dom';
 
 
 function ConfigurationProfile(){
-
   const [senha, setSenha] = useState();
   const [email, setEmail] = useState();
   const [nome, setNome] = useState();
   const [userData, setUserdata] = useState([]);
   const id = localStorage.getItem("@Authid");
 
-
   useEffect(() => {
     if (id) {
-        const formData = {
-            id: id
-        };
-    axios.post(`/find/findUser`, formData) 
-        .then(function (response){
-    setNome(response.data.data.nome);                 
-    setEmail(response.data.data.email);                 
-    setSenha(response.data.data.senha);             
-})             
-    .catch(function (error) {   
-          console.log(error);             
-});     }   }, [id]); 
+      const formData = {
+        id: id
+      };
+      axios.post(`/find/findUser`, formData) 
+        .then(function (response) {
+          setNome(response.data.data.nome);                 
+          setEmail(response.data.data.email);                 
+          setSenha(response.data.data.senha);             
+        })             
+        .catch(function (error) {   
+            console.log(error);             
+        });     
+    }   
+  }, [id]); 
 
-  const useFetchData = async () => {
-    const id = localStorage.getItem('@Auth:id');
+  const fetchData = async () => {
+    const id = localStorage.getItem('id');
+    //alert(id);
     if (id) {
       try {
         const response = await api.get('/user/' + id);
+        alert(response);
+        
         setUserdata(response.data);
+        alert(userData);
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
-  };
-    useEffect(() => {
-    useFetchData();
+
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
-  const handleSave = (nome, email, senha) => {
-      const data = {
-        nome,
-        senha,
-        email
-      };
-      const id = localStorage('@Auth:id');
-      console.log(id);
-      const response = api.put('/user/' + id, data);    
+  // const handleSave = (nome, email, senha) => {
+  //     const data = {
+  //       nome,
+  //       senha,
+  //       email
+  //     };
+  //     const id = localStorage('@Auth:id');
+  //     console.log(id);
+  //     const response = api.put('/user/' + id, data);    
 
-      if(response.data.success) {
-        alert('atualizado');
-      }
-  }
-  // const response = api.put('/user/' + id, data);  
-  // console.log(response)  
+  //     if(response.data.success) {
+  //       alert('atualizado');
+  //     }
+  //     const response = api.put('/user/' + id, data);  
+  //     console.log(response)  
+  //   }
+  
   
   return(
       <>        
@@ -95,7 +103,7 @@ function ConfigurationProfile(){
             />
           </FormLabel>
           <FormForm
-            onClick={handleSave}
+            // onClick={handleSave}
             type="submit"
           >Salvar alterações
           </FormForm>
@@ -105,5 +113,5 @@ function ConfigurationProfile(){
     </> 
   )
 }
-}
+
 export default ConfigurationProfile

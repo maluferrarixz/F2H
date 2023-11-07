@@ -181,6 +181,10 @@ async function deleteUser(request, response) {
     });
 }
 
+async function getUsrrById (request, repsonse) {
+    
+}
+
 module.exports = {
     listUsers,
     storeUser,
