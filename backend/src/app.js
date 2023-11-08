@@ -17,7 +17,8 @@ app.use(cors())
 // Habilitar as rotas na aplicação
 app.use('/api', userRouter);
 app.use('/api/auth', loginRouter);
-app.use('/find', findUserRouter);
+app.use('/api/find', findUserRouter)
+// app.use('/find', findUserRouter);
 // Setar a porta do servidor, a parir do arquivo .env
 app.set('port', process.env.PORT || 1903);
 

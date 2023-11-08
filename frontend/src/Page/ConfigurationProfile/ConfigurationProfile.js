@@ -14,24 +14,24 @@ function ConfigurationProfile(){
   const [email, setEmail] = useState();
   const [nome, setNome] = useState();
   const [userData, setUserdata] = useState([]);
-  const id = localStorage.getItem("@Authid");
+  const id = localStorage.getItem("id");
 
-  useEffect(() => {
-    if (id) {
-      const formData = {
-        id: id
-      };
-      axios.post(`/find/findUser`, formData) 
-        .then(function (response) {
-          setNome(response.data.data.nome);                 
-          setEmail(response.data.data.email);                 
-          setSenha(response.data.data.senha);             
-        })             
-        .catch(function (error) {   
-            console.log(error);             
-        });     
-    }   
-  }, [id]); 
+  // useEffect(() => {
+  //   if (id) {
+  //     const formData = {
+  //       id: id
+  //     };
+  //     axios.post(`/find/findUser`, formData) 
+  //       .then(function (response) {
+  //         setNome(response.data.data.nome);                 
+  //         setEmail(response.data.data.email);                 
+  //         setSenha(response.data.data.senha);             
+  //       })             
+  //       .catch(function (error) {   
+  //           console.log(error);             
+  //       });     
+  //   }   
+  // }, [id]); 
 
   const fetchData = async () => {
     const id = localStorage.getItem('id');
@@ -39,57 +39,61 @@ function ConfigurationProfile(){
     if (id) {
       try {
         const response = await api.get('/user/' + id);
-        alert(response);
+        console.log(response);
         
-        setUserdata(response.data);
-        alert(userData);
+        setUserdata(response.data.data[0]);
+        console.log('aaaaaaaaaaaaaaa', userData);
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
 
     }
   }
-
   useEffect(() => {
     fetchData();
   }, []);
 
-  // const handleSave = (nome, email, senha) => {
-  //     const data = {
-  //       nome,
-  //       senha,
-  //       email
-  //     };
-  //     const id = localStorage('@Auth:id');
-  //     console.log(id);
-  //     const response = api.put('/user/' + id, data);    
-
-  //     if(response.data.success) {
-  //       alert('atualizado');
-  //     }
-  //     const response = api.put('/user/' + id, data);  
-  //     console.log(response)  
-  //   }
+  const handleSave = (nome, email, senha) => {
+    console.log('fffffffffffffffffffffffffffffffffffffffffffff')
+      const data = {
+        nome,
+        senha,
+        email
+      };
+      const id = localStorage.getItem('id');
+      const response = api.put(`/user/${id}`, data);  
+      console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', response)
+      .then((response)=>{
+        console.log(response)
+      })
+      .catch((erro)=>{
+        return(erro.response)
+      })
+      // if(response.data.data[0].success) {
+      //   alert('atualizado');
+      //   console.log('=====================', response)
+      // }
+    }
+  
   
   
   return(
       <>        
       <HeaderConfiguration />      
-      {/* {userData.map((user) => ( */}
         <FormContainer >
           <ImgDivProfile>
             <ImgProfile src={ProfileImg} />
           </ImgDivProfile>
           <FormLabel>User name
             <FormInput
-              defaultValue={nome}
+              defaultValue={userData.nome}
               type="text"
               onChange={(e) => setNome(e.target.value)}
             />
           </FormLabel>
           <FormLabel>Senha
             <FormInput
-              defaultValue={senha}
+              defaultValue={userData.senha}
               type="password" // Corrija o tipo para "password"
               onChange={(e) => setSenha(e.target.value)}
             />
@@ -97,19 +101,18 @@ function ConfigurationProfile(){
           <FormLabel>Email
             <FormInput
               type="email"
-              defaultValue={email}
+              defaultValue={userData.email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="marialuizinha167@gmail.com"
             />
           </FormLabel>
           <FormForm
-            // onClick={handleSave}
-            type="submit"
+            onClick={handleSave}
+            // type="submit"
           >Salvar alterações
           </FormForm>
           <MenuFeed />
         </FormContainer>
-        {/* ))} */}
     </> 
   )
 }

@@ -97,13 +97,13 @@ console.log(request.body.name,)
 // Função que atualiza o usuário no banco
 async function updateUser(request, response) {
     // Preparar o comando de execução no banco
-    const query = "UPDATE users SET `nome` = ?, `senha` = ?, `isEnabled` = ? WHERE `id_user` = ?";
+    const query = "UPDATE users SET `nome` = ?, `senha` = ?, `email` = ? WHERE `id_user` = ?";
 
     // Recuperar os dados enviados na requisição respectivamente
     const params = Array(
-        request.body.ds_nome,
-        bcrypt.hashSync(request.body.ds_password, 10),
-        request.body.fl_status,
+        request.body.nome,
+        bcrypt.hashSync(request.body.senha, 10),
+        request.body.email,
         request.params.id  // Recebimento de parametro da rota
     );
 
@@ -181,13 +181,53 @@ async function deleteUser(request, response) {
     });
 }
 
-async function getUsrrById (request, repsonse) {
-    
-}
+async function getUserById (request, response) {
+        // Preparar o comando de execução no banco
+        const query = "SELECT nome, senha, email FROM users WHERE `id_user` = ?";
 
+        // Recebimento de parametro da rota
+        const params = Array(
+            request.params.id,
+            request.body.nome,
+            request.body.senha,
+            request.body.email
+        );
+    
+        // Executa a ação no banco e valida os retornos para o client que realizou a solicitação
+        connection.query(query, params, (err, results) => {
+            try {
+                if (results) {
+                    response
+                        .status(200)
+                        .json({
+                            success: true,
+                            message: `Sucesso! Usuário deletado.`,
+                            data: results
+                        });
+                } else {
+                    response
+                        .status(400)
+                        .json({
+                            success: false,
+                            message: `Não foi possível realizar a remoção. Verifique os dados informados`,
+                            query: err.sql,
+                            sqlMessage: err.sqlMessage
+                        });
+                }
+            } catch (e) { // Caso aconteça algum erro na execução
+                response.status(400).json({
+                        succes: false,
+                        message: "Ocorreu um erro. Não foi possível deletar usuário!",
+                        query: err.sql,
+                        sqlMessage: err.sqlMessage
+                    });
+            }
+        });
+    }
 module.exports = {
     listUsers,
     storeUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    getUserById
 }
