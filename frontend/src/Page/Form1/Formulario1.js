@@ -14,6 +14,25 @@ function Formulario1() {
     Outro:""
   });
 
+  const [funk, setFunk] = useState(false);
+
+  const handleFunk = () => {
+    setFunk(!funk);
+  };
+
+  // quando submeter 
+  const handlerSubmit = () => {
+    funk === true ? 1 : 0; 
+
+    const data = {
+      funk,
+
+    }
+
+    const response = await api.post('URL_PAI', data);
+    
+  }
+
   // Função para atualizar o estado e o localStorage
   const handleChange = (event) => {
     const { name, type, checked, value } = event.target;
@@ -95,9 +114,9 @@ function Formulario1() {
           <Checkbox
             size="lg"
             colorScheme="purple"
-            name="Funk"
-            isChecked={formData.Funk}
-            onChange={handleChange}
+            name="Funk"            
+            // isChecked={formData.Funk}
+            onChange={handleFunk}
           >
             Funk
           </Checkbox>

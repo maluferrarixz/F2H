@@ -42,7 +42,6 @@ function ConfigurationProfile(){
         console.log(response);
         
         setUserdata(response.data.data[0]);
-        console.log('aaaaaaaaaaaaaaa', userData);
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
@@ -74,13 +73,12 @@ function ConfigurationProfile(){
       //   console.log('=====================', response)
       // }
     }
-  
-  
+
   
   return(
       <>        
       <HeaderConfiguration />      
-        <FormContainer >
+        <FormContainer  >
           <ImgDivProfile>
             <ImgProfile src={ProfileImg} />
           </ImgDivProfile>
@@ -107,7 +105,7 @@ function ConfigurationProfile(){
             />
           </FormLabel>
           <FormForm
-            onClick={handleSave}
+           onClick={handleSave}
             // type="submit"
           >Salvar alterações
           </FormForm>
