@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, ButtonContainer, FormContainer, FormForm, InputContainer, LabelContainer, TextContainer, TittleContainer } from "./Styled";
+import { Button, ButtonContainer, FormContainer, FormForm, TextContainer, TittleContainer } from "./Styled";
 import { Link } from "react-router-dom";
 import { Checkbox } from '@chakra-ui/react';
 import { api } from "../../services/api";
@@ -14,7 +14,6 @@ function Formulario1() {
     Perfeccionismo: false,
     Irritação: false,
     Distorção: false,
-    Outro: "",
   });
 
   // Função para atualizar o estado e o localStorage
@@ -66,7 +65,7 @@ function Formulario1() {
   return (
     <>
       <TittleContainer>Formulário</TittleContainer>
-      <TextContainer>Agora que optou suas escolhas para dança, diga que problemas estão relacionados a sua melhora!</TextContainer>
+      <TextContainer>Agora que optou sua escolha para dança, diga que problema está relacionado a sua melhora!</TextContainer>
       <FormContainer>
         <FormForm>
           <ButtonContainer>
@@ -152,21 +151,6 @@ function Formulario1() {
         </FormForm>
       </FormContainer>
       <FormContainer>
-        <FormForm>
-          <LabelContainer>Se for outro, digite qual!</LabelContainer>
-        </FormForm>
-      </FormContainer>
-      <FormContainer>
-        <FormForm>
-          <InputContainer
-            type="text"
-            name="Outro"
-            value={formData.Outro}
-            onChange={handleChange}
-            className="input"
-            placeholder="Digite o seu problema"
-          />
-        </FormForm>
       </FormContainer>
       <FormContainer>
         <FormForm>

@@ -30,6 +30,7 @@ function Login () {
         } else if (response.data.data && response.data.data.email) {
           localStorage.setItem("user", JSON.stringify(response.data.data.email));
           localStorage.setItem("id", JSON.stringify(response.data.data.id_user));
+          localStorage.setItem("senha", JSON.stringify(response.data.data.senha));
           localStorage.setItem("token", response.data.data.token);
          setUser(response.data.data);
           navigate("/Feed");

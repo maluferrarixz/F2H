@@ -1,7 +1,14 @@
-import { FormContainer, FormForm, TextContainer, TittleContainer } from "./Styled";
-import SectionAnother from "../../components/SectionAnother/SectionAnother";
+import {
+  FormContainer,
+  FormForm,
+  TextContainer,
+  TittleContainer,
+  Button
+} from "./Styled";
+// import SectionAnother from "../../components/SectionAnother/SectionAnother";
 import { Checkbox } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Formulario1() {
   const [formData, setFormData] = useState({
@@ -11,40 +18,31 @@ function Formulario1() {
     Jazz: false,
     "Dança do vêntre": false,
     Funk: false,
-    Outro:""
+
   });
-
-  const [funk, setFunk] = useState(false);
-
-  const handleFunk = () => {
-    setFunk(!funk);
-  };
-
-  // quando submeter 
-  const handlerSubmit = () => {
-    funk === true ? 1 : 0; 
-
-    const data = {
-      funk,
-
-    }
-
-    const response = await api.post('URL_PAI', data);
-    
-  }
 
   // Função para atualizar o estado e o localStorage
   const handleChange = (event) => {
     const { name, type, checked, value } = event.target;
-    const updatedFormData = {
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    };
 
-    setFormData(updatedFormData);
+    // Se a opção atualmente marcada for desmarcada, ou se a opção não estava marcada
+    if (!checked || !formData[name]) {
+      const updatedFormData = {
+        ...formData,
+        HipHop: false,
+        Ballet: false,
+        Contemporâneo: false,
+        Jazz: false,
+        "Dança do vêntre": false,
+        Funk: false,
+        [name]: checked,
+      };
 
-    // Salvar os dados atualizados no localStorage
-    localStorage.setItem("formData", JSON.stringify(updatedFormData));
+      setFormData(updatedFormData);
+
+      // Salvar os dados atualizados no localStorage
+      localStorage.setItem("formData", JSON.stringify(updatedFormData));
+    }
   };
 
   // Carregar os dados do localStorage quando o componente for montado
@@ -59,10 +57,12 @@ function Formulario1() {
     <>
       <TittleContainer>Formulário</TittleContainer>
       <TextContainer>
-        Agora que fizeste tua conta, precisamos saber um pouco dos seus gostos para dança, para que assim seu perfil possa ficar a sua cara!
+        Agora que fizeste tua conta, precisamos saber um pouco dos seus gostos
+        para dança, para que assim seu perfil possa ficar a sua cara!
       </TextContainer>
       <TextContainer>
-        De início, escolha as danças que você gostaria de saber mais ou ver em seu feed!
+        De início, escolha a dança que você gostaria de saber mais ou ver em
+        seu feed!
       </TextContainer>
       <FormContainer>
         <FormForm>
@@ -114,46 +114,23 @@ function Formulario1() {
           <Checkbox
             size="lg"
             colorScheme="purple"
-            name="Funk"            
-            // isChecked={formData.Funk}
-            onChange={handleFunk}
+            name="Funk"
+            isChecked={formData.Funk}
+            onChange={handleChange}
           >
             Funk
           </Checkbox>
         </FormForm>
       </FormContainer>
-      <SectionAnother />
+      <FormContainer>
+        <FormForm>
+          <Button>
+            <Link to="/formulario2">Próximo</Link>
+          </Button>
+        </FormForm>
+      </FormContainer>
     </>
   );
 }
 
 export default Formulario1;
-
-
-
-// import { FormContainer, FormForm,  TextContainer, TittleContainer } from "./Styled"
-// import SectionAnother from "../../components/SectionAnother/SectionAnother"
-// import { Checkbox } from '@chakra-ui/react'
-
-// function Formulario1(){
-
-//     return(
-//         <>
-//         <TittleContainer>Formulário</TittleContainer>
-//         <TextContainer>Agora que fizeste tua conta, precisamos saber um pouco dos seus gostos para dança, para que assim seu perfil possa ficar a sua cara!</TextContainer>
-//         <TextContainer>De início, escolha as danças que você gostaria de saber mais ou ver em seu feed!</TextContainer>
-//             <FormContainer>
-//             <FormForm>
-//             <Checkbox  size='lg' colorScheme='purple' >HipHop</Checkbox>
-//             <Checkbox  size='lg' colorScheme='purple' >Ballet</Checkbox>
-//             <Checkbox  size='lg' colorScheme='purple' >Contemporâneo</Checkbox>
-//             <Checkbox  size='lg' colorScheme='purple' >Jazz</Checkbox>
-//             <Checkbox  size='lg' colorScheme='purple' >Dança do vêntre</Checkbox>
-//             <Checkbox  size='lg' colorScheme='purple' >Funk</Checkbox>
-//             </FormForm>
-//            </FormContainer>
-//             <SectionAnother/>
-//         </>
-//     )
-// }
-// export default Formulario1

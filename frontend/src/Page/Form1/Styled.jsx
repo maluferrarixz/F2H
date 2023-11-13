@@ -97,7 +97,8 @@ export const Button = styled.button`
     font-weight: 300;
     box-shadow: 2px 3px 7px #00000060;
     font-family: 'Poppins', sans-serif;   
-
+    margin-left:9vh;
+    margin-top:3vh;
 
     color: rgb(255, 255, 255);
     border: 1px solid var(--blue);
@@ -105,3 +106,4 @@ export const Button = styled.button`
     background-color: #896594 ;
 
 `
+

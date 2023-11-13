@@ -26,7 +26,7 @@ function Rotas(){
         <BrowserRouter>
         <Routes>
                 <Route index element={<Login/>}/>
-                {/* <Route path = "home" element={<Home/>}/> */}
+                <Route path = "home" element={<Home/>}/>
                 <Route path = "Cadastro" element={<Cadastro/>}/>
                 <Route path = "formulario1" element={<Formulario1/>}/>
                 <Route path = "formulario2" element={<Formulario2/>}/>
@@ -39,6 +39,7 @@ function Rotas(){
                 <Route path = "NewPublic" element={<NewPublic/>}/>
                 <Route path = "ConfigurationProfile" element={<ConfigurationProfile/>}/>
                 <Route path="home" element={<PrivateRoutes redirectTo='/'><Home/></PrivateRoutes>}/>
+                {/* <Route path="Feed" element={<PrivateRoutes redirectTo='/Feed'><Feed/></PrivateRoutes>}/> */}
         </Routes>  
         </BrowserRouter>
     )

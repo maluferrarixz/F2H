@@ -10,9 +10,9 @@ import { api } from "../../services/api";
 
 
 function ConfigurationProfile(){
-  const [senha, setSenha] = useState();
-  const [email, setEmail] = useState();
-  const [nome, setNome] = useState();
+  const [ setSenha] = useState();
+  const [ setEmail] = useState();
+  const [ setNome] = useState();
   const [userData, setUserdata] = useState([]);
   const id = localStorage.getItem("id");
 
