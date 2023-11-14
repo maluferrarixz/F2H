@@ -10,28 +10,12 @@ import { api } from "../../services/api";
 
 
 function ConfigurationProfile(){
-  const [ setSenha] = useState();
-  const [ setEmail] = useState();
-  const [ setNome] = useState();
+  const [ senha, setSenha] = useState();
+  const [ email, setEmail] = useState();
+  const [ nome, setNome] = useState();
   const [userData, setUserdata] = useState([]);
-  const id = localStorage.getItem("id");
+  // const id = localStorage.getItem("id");
 
-  // useEffect(() => {
-  //   if (id) {
-  //     const formData = {
-  //       id: id
-  //     };
-  //     axios.post(`/find/findUser`, formData) 
-  //       .then(function (response) {
-  //         setNome(response.data.data.nome);                 
-  //         setEmail(response.data.data.email);                 
-  //         setSenha(response.data.data.senha);             
-  //       })             
-  //       .catch(function (error) {   
-  //           console.log(error);             
-  //       });     
-  //   }   
-  // }, [id]); 
 
   const fetchData = async () => {
     const id = localStorage.getItem('id');
@@ -60,7 +44,7 @@ function ConfigurationProfile(){
         email
       };
       const id = localStorage.getItem('id');
-      const response = api.put(`/user/${id}`, data);  
+      const response = api.put(`/user/${id}`, data);
       console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', response)
       .then((response)=>{
         console.log(response)

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, ButtonContainer, FormContainer, FormForm, TextContainer, TittleContainer } from "./Styled";
 import { Link } from "react-router-dom";
 import { Checkbox } from '@chakra-ui/react';
-import { api } from "../../services/api";
+// import { api } from "../../services/api";
 
 function Formulario1() {
   const [formData, setFormData] = useState({
@@ -54,14 +54,14 @@ function Formulario1() {
     }
   }, []);
 
-    const handleFormSubmit = async (e) => {
+    // const handleFormSubmit = async (e) => {
 
-        e.preventDefault();
-        console.log('teste', teste)
-        await api.post("/form", teste)
+    //     e.preventDefault();
+    //     console.log('teste', teste)
+    //     await api.post("/form", teste)
 
 
-    }
+    // }
   return (
     <>
       <TittleContainer>Formulário</TittleContainer>
@@ -154,7 +154,7 @@ function Formulario1() {
       </FormContainer>
       <FormContainer>
         <FormForm>
-          <Button onClick={handleFormSubmit}>
+          <Button>
             <Link to="/FormEnd">Próximo</Link>
           </Button>
         </FormForm>

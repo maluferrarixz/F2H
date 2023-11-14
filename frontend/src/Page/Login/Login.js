@@ -33,7 +33,7 @@ function Login () {
           localStorage.setItem("senha", JSON.stringify(response.data.data.senha));
           localStorage.setItem("token", response.data.data.token);
          setUser(response.data.data);
-          navigate("/Feed");
+          navigate("/Home");
         } else {
           console.error("Dados de resposta ausentes ou incorretos.");
           alert("Login não encontrado!");

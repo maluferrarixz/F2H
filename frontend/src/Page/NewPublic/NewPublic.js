@@ -13,6 +13,8 @@ function NewPublic(){
     const [image, setImage] = useState('');
     const [preview, setPreview] = useState('');
     const [content, setContent] = useState('');
+    // const id = localStorage.getItem('id');
+
 
 
     // useEffect(() => {
@@ -43,8 +45,9 @@ function NewPublic(){
         let formData = new FormData();
         formData.append('conteudo', content);
         // formData.append('cate', category)
-        formData.append('userId', localStorage.getItem('id'));
+        formData.append('id_user', localStorage.getItem('id'));
         formData.append('file', image);
+
 
         
         try {
@@ -84,6 +87,11 @@ function NewPublic(){
         <PublicHashtagProblem/> */}
         <ButtonNewPublic  onClick={handleSubmit} type="submit">Publicar
         </ButtonNewPublic>
+        {preview &&(
+            <div>
+                <img src={preview} alt="imagem selecionda"/>
+            </div>
+        )}
         </DivPage>
         <MenuFeed/>
         </>

@@ -5,11 +5,14 @@ import HomePage from "../../Assets/ProfileImgCard.jpg"
 import SavePublication from "../../Assets/SaveCard.svg"
 import AlertToShare from "../../components/AlertToShare/AlertToShare"
 import ParagraphCard from "../../components/ParagraphCard/ParagraphCard"
+// import { Link, useNavigate } from "react-router-dom";
+// const navigate = useNavigate();
 
-function CardFeed(){
+function CardFeed(post ){
 
     return(
         <>
+  {/* {postContent.map((post, index) => ( */}
         <SectionCard>
         <DivCard> 
         <DivProfileCard>
@@ -35,6 +38,8 @@ function CardFeed(){
         </DivCardInteraction>
         </DivCard>
         </SectionCard>
+            {/* ))} */}
+
         </>
     )
 }

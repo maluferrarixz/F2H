@@ -45,7 +45,7 @@ function Cadastro(){
       };
       await api.post("/user/create", data);
       alert("Usuário criado com sucesso!");
-      navigate("/home")
+      navigate("/")
     };
   
     return (

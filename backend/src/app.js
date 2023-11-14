@@ -10,8 +10,15 @@ const loginRouter = require('./routes/loginRouter');
 const findUserRouter = require('./routes/findUserRouter');
 const postRouter = require('./routes/postRouter');
 
-// Instanciar o express na variável app
 const app = express();
+
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
+ 
+// Torna a pasta public "visível" atrávez da URL, para assim mostrar as imagens
+app.use('/uploads', express.static(__dirname + '\\public'));
+// Instanciar o express na variável app
+
 app.use(express.json());
 // Habilitar o recebimento de requests em formato JSON
 app.use(cors())
@@ -23,5 +30,4 @@ app.use('/api/post', postRouter)
 // app.use('/find', findUserRouter);
 // Setar a porta do servidor, a parir do arquivo .env
 app.set('port', process.env.PORT || 1903);
-
 module.exports = app;

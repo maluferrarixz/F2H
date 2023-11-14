@@ -23,7 +23,7 @@ function Formulario1() {
 
   // Função para atualizar o estado e o localStorage
   const handleChange = (event) => {
-    const { name, type, checked, value } = event.target;
+    const { name, checked } = event.target;
 
     // Se a opção atualmente marcada for desmarcada, ou se a opção não estava marcada
     if (!checked || !formData[name]) {
@@ -44,6 +44,13 @@ function Formulario1() {
       localStorage.setItem("formData", JSON.stringify(updatedFormData));
     }
   };
+//   tabelaDanca = [
+//     {id:1, '}
+//     {}
+//     {}
+//     {}
+//     {}
+// ]
 
   // Carregar os dados do localStorage quando o componente for montado
   useEffect(() => {

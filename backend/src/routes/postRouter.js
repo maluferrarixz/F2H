@@ -9,7 +9,7 @@ const router = Router();
 const upload = require('../config/multer');
 router.post('/createPost', upload.single('file'), createPost);
 
-// router.get('/posts', getAllPosts);
+router.get('/posts', getAllPosts);
 // router.get('/post/commerce', getCommercePost);
 
 module.exports = router;
