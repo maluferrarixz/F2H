@@ -42,6 +42,7 @@ export const TittleProfile = styled.h1`
 font-size:20px;
 font-weight:400;
 margin-top:2vh;
+font-size:2.5vh;
 `
 
 export const TextProfile = styled.p`

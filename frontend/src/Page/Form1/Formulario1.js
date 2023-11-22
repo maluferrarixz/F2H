@@ -5,59 +5,67 @@ import {
   TittleContainer,
   Button
 } from "./Styled";
-// import SectionAnother from "../../components/SectionAnother/SectionAnother";
 import { Checkbox } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import { api } from "../../services/api";
 
 function Formulario1() {
-  const [formData, setFormData] = useState({
-    HipHop: false,
-    Ballet: false,
-    Contemporâneo: false,
-    Jazz: false,
-    "Dança do vêntre": false,
-    Funk: false,
+  const [dancas, setDancas] = useState([]);
+  const [selectedDance, setSelectedDance] = useState(null);
+  const storedUserId = localStorage.getItem("id"); // Obtém o ID do usuário armazenado localmente
+  const [userId, setUserId] = useState(storedUserId ? parseInt(storedUserId, 10) : null);
+  const [selectedDanceId, setSelectedDanceId] = useState(null);
 
-  });
+  const handleCheckboxChange = (dancaId) => {
+    console.log('Checkbox Selecionado:', dancaId);
+    
+    // Armazena o ID da dança no localStorage
+    localStorage.setItem('selectedDanceId', dancaId);
+  
+    setSelectedDance((prevSelected) => {
+      console.log('Prev Selected:', prevSelected);
+      const newSelected = prevSelected === dancaId ? null : dancaId;
+      console.log('New Selected:', newSelected);
+      return newSelected;
+    });
+  };
 
-  // Função para atualizar o estado e o localStorage
-  const handleChange = (event) => {
-    const { name, checked } = event.target;
-
-    // Se a opção atualmente marcada for desmarcada, ou se a opção não estava marcada
-    if (!checked || !formData[name]) {
-      const updatedFormData = {
-        ...formData,
-        HipHop: false,
-        Ballet: false,
-        Contemporâneo: false,
-        Jazz: false,
-        "Dança do vêntre": false,
-        Funk: false,
-        [name]: checked,
-      };
-
-      setFormData(updatedFormData);
-
-      // Salvar os dados atualizados no localStorage
-      localStorage.setItem("formData", JSON.stringify(updatedFormData));
+  const handleSubmit = async () => {
+    try {
+      if (userId !== null && selectedDance) {
+        console.log('ID de Dança Selecionado:', selectedDance);
+  
+        // Faz uma requisição para a sua API para atualizar o ID de dança do usuário
+        await axios.post(`${api.defaults.baseURL}/updateUserDanceId/updateUserDanceId`, {
+          id_user: userId, // Use o ID do usuário do localStorage
+          id_danca: selectedDance, // Use o ID da dança selecionada
+        });
+  
+        console.log('resposta enviada com sucesso!');
+  
+        // Limpa o estado após o envio bem-sucedido
+        setSelectedDance(null);
+      }
+    } catch (error) {
+      console.error("Erro ao enviar para o back-end:", error);
+      // Trate o erro conforme necessário
     }
   };
-//   tabelaDanca = [
-//     {id:1, '}
-//     {}
-//     {}
-//     {}
-//     {}
-// ]
-
-  // Carregar os dados do localStorage quando o componente for montado
-  useEffect(() => {
-    const savedFormData = localStorage.getItem("formData");
-    if (savedFormData) {
-      setFormData(JSON.parse(savedFormData));
+  
+  const fetchDances = async () => {
+    try {
+      const response = await axios.get(`${api.defaults.baseURL}/dances/dances`);
+      console.log(response.data.data);
+      setDancas(response.data.data);
+    } catch (error) {
+      console.error('Erro ao buscar danças:', error);
     }
+  };
+
+  useEffect(() => {
+    fetchDances();
   }, []);
 
   return (
@@ -73,65 +81,22 @@ function Formulario1() {
       </TextContainer>
       <FormContainer>
         <FormForm>
-          <Checkbox
-            size="lg"
-            colorScheme="purple"
-            name="HipHop"
-            isChecked={formData.HipHop}
-            onChange={handleChange}
-          >
-            HipHop
-          </Checkbox>
-          <Checkbox
-            size="lg"
-            colorScheme="purple"
-            name="Ballet"
-            isChecked={formData.Ballet}
-            onChange={handleChange}
-          >
-            Ballet
-          </Checkbox>
-          <Checkbox
-            size="lg"
-            colorScheme="purple"
-            name="Contemporâneo"
-            isChecked={formData.Contemporâneo}
-            onChange={handleChange}
-          >
-            Contemporâneo
-          </Checkbox>
-          <Checkbox
-            size="lg"
-            colorScheme="purple"
-            name="Jazz"
-            isChecked={formData.Jazz}
-            onChange={handleChange}
-          >
-            Jazz
-          </Checkbox>
-          <Checkbox
-            size="lg"
-            colorScheme="purple"
-            name="Dança do vêntre"
-            isChecked={formData["Dança do vêntre"]}
-            onChange={handleChange}
-          >
-            Dança do vêntre
-          </Checkbox>
-          <Checkbox
-            size="lg"
-            colorScheme="purple"
-            name="Funk"
-            isChecked={formData.Funk}
-            onChange={handleChange}
-          >
-            Funk
-          </Checkbox>
+          {dancas.map((danca) => (
+            <Checkbox
+              key={danca.id_danca}
+              size="lg"
+              colorScheme="purple"
+              isChecked={selectedDance === danca.id_danca}
+              onChange={() => handleCheckboxChange(danca.id_danca)}
+            >
+              {danca.nome}
+            </Checkbox>
+          ))}
         </FormForm>
       </FormContainer>
       <FormContainer>
         <FormForm>
-          <Button>
+          <Button onClick={handleSubmit}>
             <Link to="/formulario2">Próximo</Link>
           </Button>
         </FormForm>

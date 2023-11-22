@@ -26,12 +26,16 @@ function SignOut() {
   //   }
     const handleSubmit = (e) => {
       e.preventDefault();
+      //pega o id no localhost para identificar o usuário
       const id = localStorage.getItem('id');
          if (id){
           try{      
-            const response = api.delete(`/user/${id}`)
+            // // função de deletar para deletar as informações
+            // const response = api.delete(`/user/${id}`)
+            //limpa o localstorage, apaga também o token
             localStorage.clear()
-            console.log(response)
+            
+            // console.log(response)
             navigate('/')
           } catch(error){
            console.log(error)

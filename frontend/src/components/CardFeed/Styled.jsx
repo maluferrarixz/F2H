@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import CardFeedPost from "../../Assets/CardFeedPost.jpg"
 
 export const SectionCard = styled.section`
 
@@ -39,6 +38,8 @@ export const ProfileTextCard = styled.p`
     margin-top:20px;
     font-family: 'Poppins', sans-serif;  
     font-weight:bold; 
+    font-size:2vh;
+
 
 `
 export const DivImgCard = styled.div`
@@ -46,7 +47,6 @@ export const DivImgCard = styled.div`
     height: 40vh;
     align-items: center;
     overflow: hidden;
-    background: url(${CardFeedPost});
     background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
     background-repeat: no-repeat; /* Impede a repetição da imagem */
     background-position: 100%;

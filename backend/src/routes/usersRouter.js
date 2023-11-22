@@ -14,6 +14,7 @@ const router = Router();
 const { 
     listUsers,
     storeUser,
+    listUserInfos,
     updateUser,
     deleteUser,
     getUserById,
@@ -21,6 +22,7 @@ const {
 
 // Criar os endpoints (rotas) que serão acessados a partir dos métodos HTTP (get,post,put,delete)
 router.get('/users', listUsers);
+router.get('/user/information/:userEmail', listUserInfos);
 router.get('/user/:id', getUserById);
 router.post('/user/create', storeUser);
 router.put('/user/:id', updateUser);

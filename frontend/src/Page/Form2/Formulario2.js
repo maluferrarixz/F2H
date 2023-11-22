@@ -1,160 +1,97 @@
-import React, { useState, useEffect } from 'react';
-import { Button, ButtonContainer, FormContainer, FormForm, TextContainer, TittleContainer } from "./Styled";
-import { Link } from "react-router-dom";
-import { Checkbox } from '@chakra-ui/react';
+// import React, { useState, useEffect } from 'react';
+import { Button,  FormContainer, FormForm, TextContainer, TittleContainer } from "./Styled";
+import { Checkbox } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { api } from "../../services/api";
+
+
 // import { api } from "../../services/api";
 
 function Formulario1() {
-  const [formData, setFormData] = useState({
-    Ansiedade: false,
-    Depressão: false,
-    "Baixa autoestima": false,
-    "Fobia Social": false,
-    Vergonha: false,
-    Perfeccionismo: false,
-    Irritação: false,
-    Distorção: false,
-  });
+  const [problemas, setProblemas] = useState([]);
+  const [selectedDance, setSelectedDance] = useState(null);
+  const storedUserId = localStorage.getItem("id"); // Obtém o ID do usuário armazenado localmente
+  const [userId] = useState(storedUserId ? parseInt(storedUserId, 10) : null);
+  const navigate = useNavigate();
 
-  // Função para atualizar o estado e o localStorage
-  let teste = {}
-
-  const handleChange = (event) => {
-    const { name, type, checked, value } = event.target;
-
-    console.log('value', checked)
-
-
-    if (checked === true) {
-        console.log('name', name, 'value', value)
-        teste = {
-            ...teste,
-            name
-        }
-    }
-
-    let updatedFormData = {
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value
-    };
-
-
-    setFormData(updatedFormData);
-    console.log('-----------', updatedFormData)
-
-    // Salvar os dados atualizados no localStorage
-    localStorage.setItem("formData2", JSON.stringify(updatedFormData));
+  const handleCheckboxChange = (dancaId) => {
+    console.log('Checkbox Selecionado:', dancaId);
+    
+    // Armazena o ID da dança no localStorage
+    localStorage.setItem('selectedProblemId', dancaId);
+  
+    setSelectedDance((prevSelected) => {
+      console.log('Prev Selected:', prevSelected);
+      const newSelected = prevSelected === dancaId ? null : dancaId;
+      console.log('New Selected:', newSelected);
+      return newSelected;
+    });
   };
 
-  // Carregar os dados do localStorage quando o componente for montado
-  useEffect(() => {
-    const savedFormData = localStorage.getItem("formData2");
-    if (savedFormData) {
-      setFormData(JSON.parse(savedFormData));
+  const handleSubmit = async () => {
+    try {
+      if (userId !== null && selectedDance) {
+        console.log('ID de Dança Selecionado:', selectedDance);
+  
+        // Faz uma requisição para a sua API para atualizar o ID de dança do usuário
+        await axios.post(`${api.defaults.baseURL}/updateUserProblemId/updateUserProblemId`, {
+          id_user: userId, // Use o ID do usuário do localStorage
+          id_problema: selectedDance, // Use o ID da dança selecionada
+        });
+  
+        console.log('resposta enviada com sucesso!');
+        navigate('/FormEnd')
+  
+        // Limpa o estado após o envio bem-sucedido
+        setSelectedDance(null);
+      }
+    } catch (error) {
+      console.error("Erro ao enviar para o back-end:", error);
+      // Trate o erro conforme necessário
     }
+  };
+
+
+  const fetchProblems = async () => {
+    try {
+      const response = await axios.get(`${api.defaults.baseURL}/problems/problems`);
+      console.log(response.data.data);
+      setProblemas(response.data.data);
+    } catch (error) {
+      console.error('Erro ao buscar danças:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProblems();
   }, []);
 
-    // const handleFormSubmit = async (e) => {
-
-    //     e.preventDefault();
-    //     console.log('teste', teste)
-    //     await api.post("/form", teste)
-
-
-    // }
   return (
     <>
       <TittleContainer>Formulário</TittleContainer>
       <TextContainer>Agora que optou sua escolha para dança, diga que problema está relacionado a sua melhora!</TextContainer>
       <FormContainer>
         <FormForm>
-          <ButtonContainer>
+        {problemas.map((problema) => (
             <Checkbox
-              size='lg'
-              colorScheme='purple'
-              name="Ansiedade"
-              isChecked={formData.Ansiedade}
-              onChange={handleChange}
+              key={problema.id_problema}
+              size="lg"
+              colorScheme="purple"
+              isChecked={selectedDance === problema.id_problema}
+              onChange={() => handleCheckboxChange(problema.id_problema)}
             >
-              Ansiedade
+              {problema.nome}
             </Checkbox>
-            <Checkbox
-              size='lg'
-              colorScheme='purple'
-              name="Depressão"
-              isChecked={formData.Depressão}
-              onChange={handleChange}
-            >
-              Depressão
-            </Checkbox>
-          </ButtonContainer>
-          <ButtonContainer>
-            <Checkbox
-              size='lg'
-              colorScheme='purple'
-              name="Baixa autoestima"
-              isChecked={formData["Baixa autoestima"]}
-              onChange={handleChange}
-            >
-              Baixa autoestima
-            </Checkbox>
-            <Checkbox
-              size='lg'
-              colorScheme='purple'
-              name="Fobia Social"
-              isChecked={formData["Fobia Social"]}
-              onChange={handleChange}
-            >
-              Fobia Social
-            </Checkbox>
-          </ButtonContainer>
-          <ButtonContainer>
-            <Checkbox
-              size='lg'
-              colorScheme='purple'
-              name="Vergonha"
-              isChecked={formData.Vergonha}
-              onChange={handleChange}
-            >
-              Vergonha
-            </Checkbox>
-            <Checkbox
-              size='lg'
-              colorScheme='purple'
-              name="Perfeccionismo"
-              isChecked={formData.Perfeccionismo}
-              onChange={handleChange}
-            >
-              Perfeccionismo
-            </Checkbox>
-          </ButtonContainer>
-          <ButtonContainer>
-            <Checkbox
-              size='lg'
-              colorScheme='purple'
-              name="Irritação"
-              isChecked={formData.Irritação}
-              onChange={handleChange}
-            >
-              Irritação
-            </Checkbox>
-            <Checkbox
-              size='lg'
-              colorScheme='purple'
-              name="Distorção"
-              isChecked={formData.Distorção}
-              onChange={handleChange}
-            >
-              Distorção
-            </Checkbox>
-          </ButtonContainer>
+          ))}
         </FormForm>
       </FormContainer>
       <FormContainer>
       </FormContainer>
       <FormContainer>
         <FormForm>
-          <Button>
+          <Button onClick={handleSubmit}>
             <Link to="/FormEnd">Próximo</Link>
           </Button>
         </FormForm>

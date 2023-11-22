@@ -13,7 +13,7 @@ import {
 import { ImgFilter } from './Styled'
 import Paragraph from "../../Assets/paragraph.svg"
 
-  function BasicUsage() {
+  function BasicUsage( props ) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
       <>
@@ -27,7 +27,7 @@ import Paragraph from "../../Assets/paragraph.svg"
             <ModalHeader>Parágrafo do usuário</ModalHeader>
             <ModalCloseButton />
             <ModalBody >
-                Amigos, é sempre uma sensação inexplicavel dançar em cima dos palcos. Sem medo, vamos juntos!
+              {props.conteudo}
             </ModalBody>
   
             <ModalFooter>

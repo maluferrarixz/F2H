@@ -24,16 +24,30 @@ function Login () {
       };
       try {
         const response = await api.post("/auth/login", data);
-        console.log(response.data); // Adicione esta linha para depuração
+        console.log(response.data);
+    
         if (response.data.error) {
           alert(response.data.error);
         } else if (response.data.data && response.data.data.email) {
+          // Verifique as variáveis no localStorage
+          const storedFormData = localStorage.getItem('selectedDanceId');
+          const storedFormData2 = localStorage.getItem('selectedProblemId');
+    
           localStorage.setItem("user", JSON.stringify(response.data.data.email));
           localStorage.setItem("id", JSON.stringify(response.data.data.id_user));
           localStorage.setItem("senha", JSON.stringify(response.data.data.senha));
           localStorage.setItem("token", response.data.data.token);
-         setUser(response.data.data);
-          navigate("/Home");
+          localStorage.setItem("name", response.data.data.nome);
+          localStorage.setItem("selectedDanceId", response.data.data.id_danca);
+          localStorage.setItem("selectedProblemId", response.data.data.id_problema);
+          setUser(response.data.data);
+    
+          // Adicione a condição com base nas variáveis
+          if (storedFormData && storedFormData2) {
+            navigate("/Feed");
+          } else {
+            navigate("/Home");
+          }
         } else {
           console.error("Dados de resposta ausentes ou incorretos.");
           alert("Login não encontrado!");
@@ -41,9 +55,8 @@ function Login () {
       } catch (error) {
         console.error(error);
       }
-                  
-
     }
+    
     return (
         <>
         <TituloHeader/>

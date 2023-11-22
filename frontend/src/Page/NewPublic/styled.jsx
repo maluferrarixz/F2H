@@ -13,6 +13,7 @@ height: 30vh;
 transform: rotate(0.061deg);
 flex-shrink: 0;
 margin-top:10vh;
+   
 
 
 border-radius: 10px;
@@ -28,7 +29,6 @@ export const InputNewPublic = styled.input`
     height: 05vh;
     margin-top:1.4vw;
     font-family: 'Rubik', sans-serif;
-
 
     text-align: left; /* Alinhamento horizontal */
     padding-left: 10px;
@@ -58,5 +58,10 @@ export const InputImg = styled.input`
     align-self:center;
     display:flex;
     justify-content:center;
-
+    display:none;
+`
+export const ImgPreview = styled.img`
+    width: 80vw;
+    height: 30vh;
+    border-radius: 10px;
 `

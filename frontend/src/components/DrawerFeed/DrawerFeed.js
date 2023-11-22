@@ -38,18 +38,20 @@ import {ImgFilter} from "./styled"
             <option value='option1'>HipHop</option>
             <option value='option2'>Jazz</option>
             <option value='option3'>Ballet</option>
+            <option value='option3'>Todos</option>
             </Select>
             <Select style={{marginTop:"30px"}} colorScheme='teal' variant='ghost' placeholder='Selecione a melhoria'>
             <option value='option1'>Ansiedade</option>
             <option value='option2'>Depressão</option>
             <option value='option3'>Financeiro</option>
+            <option value='option3'>Todos</option>
             </Select>
   
             <DrawerFooter style={{marginTop:"30px"}} > 
               <Button variant='outline' mr={3} onClick={onClose}>
                 Fechar
               </Button>
-              <Button colorScheme='purple'>Filtrar</Button>
+              <Button colorScheme='purple' onClick={onClose}>Filtrar</Button>
             </DrawerFooter>
           </DrawerContent>
         </Drawer>

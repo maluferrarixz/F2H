@@ -1,5 +1,5 @@
 import HeaderNewPublic from "../../components/HeaderNewPublic/HeaderNewPublic"
-import { InputImg, DivPage, NewImgDiv, InputNewPublic, ButtonNewPublic } from "./styled"
+import { InputImg, DivPage, NewImgDiv, InputNewPublic, ButtonNewPublic, ImgPreview } from "./styled"
 import MenuFeed from "../../components/MenuFeed/MenuFeed"
 // import PublicHashtagDance from "../../components/PublicHashtagDance/PublicHashtagDance"
 // import PublicHashtagProblem from "../../components/PublicHashtagProblem/PublicHashtagProblem"
@@ -7,21 +7,14 @@ import React, { useState, useEffect } from 'react';
 import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
+
 function NewPublic(){
     const navigate = useNavigate();
 
     const [image, setImage] = useState('');
     const [preview, setPreview] = useState('');
     const [content, setContent] = useState('');
-    // const id = localStorage.getItem('id');
 
-
-
-    // useEffect(() => {
-    //     // Define a imagem inicial.
-    //     const initialImageUrl = selectedImage2;
-    //     setPreview(initialImageUrl);
-    // }, []); 
     
     function handleImageChange(e) {
         setImage(e.target.files[0]);
@@ -38,28 +31,32 @@ function NewPublic(){
 
 
     const handleSubmit = async (e) => {
-        // Evita que o envio do formulário seja tratado de maneira padrão pelo navegador e faz com que você possa determinar as ações futuras.
         e.preventDefault();
-        console.log(image)
+        console.log(image);
+
+    
+        const selectedProblemId = localStorage.getItem('selectedProblemId');
+        const selectedDanceId = localStorage.getItem('selectedDanceId');
         
-        let formData = new FormData();
-        formData.append('conteudo', content);
-        // formData.append('cate', category)
+        
+        let formData = new FormData();        
         formData.append('id_user', localStorage.getItem('id'));
         formData.append('file', image);
+        formData.append('conteudo', content);
+        formData.append('selectedProblemId', selectedProblemId);
+        formData.append('selectedDanceId', selectedDanceId);
+        formData.append('name', localStorage.getItem('name'));
 
-
-        
         try {
             const response = await api.post('/post/createPost', formData);
-            navigate('/Feed')
-      
+            navigate('/Feed');
+    
             console.log('Post criado com sucesso:', response.data);
         } catch (error) {
             console.error('Erro ao criar o post:', error);
         }
     };
-
+    
     const handleImageClick = () => {
         // Ativar click no input que está oculto.
         document.getElementById('imageInput').click();        
@@ -69,7 +66,12 @@ function NewPublic(){
         <>
         <HeaderNewPublic/>       
         <DivPage>
-        <NewImgDiv onClick={handleImageClick} >
+        <NewImgDiv onClick={handleImageClick} >        
+        {preview &&(
+            <div>
+                <ImgPreview src={preview} alt="imagem selecionda"/>
+            </div>
+        )}
         <InputImg 
         type="file"
         name="image" 
@@ -87,11 +89,7 @@ function NewPublic(){
         <PublicHashtagProblem/> */}
         <ButtonNewPublic  onClick={handleSubmit} type="submit">Publicar
         </ButtonNewPublic>
-        {preview &&(
-            <div>
-                <img src={preview} alt="imagem selecionda"/>
-            </div>
-        )}
+
         </DivPage>
         <MenuFeed/>
         </>

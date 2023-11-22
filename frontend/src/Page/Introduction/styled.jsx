@@ -38,7 +38,7 @@ export const ItemText = styled.p`
     /* font-size: 2.3vh; */
     line-height: 20px;
     text-align:left;
-    padding: 03vh;
+    padding: 04vh;
     padding-top: 04vh;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
@@ -55,8 +55,9 @@ export const ButtonContainer = styled.button`
     border-radius: 10px;
     font-weight: 300;
     height: 4vh;
-    width: 29vw;
+    width: 30vw;
     margin-top:9%;
+    margin-left:20px;
 
 
     a:visited {

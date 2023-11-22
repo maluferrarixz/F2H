@@ -4,15 +4,15 @@ import {  FormContainer,FormLabel, FormInput, FormForm } from "./styled"
 import {ImgDivProfile, ImgProfile} from "../../Page/Profile/styled"
 import ProfileImg from "../../Assets/ProfileImgCard.jpg"
 import { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { api } from "../../services/api";
 // import {  useNavigate } from 'react-router-dom';
 
 
 function ConfigurationProfile(){
-  const [ senha, setSenha] = useState();
-  const [ email, setEmail] = useState();
-  const [ nome, setNome] = useState();
+  const [  setSenha] = useState();
+  const [  setEmail] = useState();
+  const [  setNome] = useState();
   const [userData, setUserdata] = useState([]);
   // const id = localStorage.getItem("id");
 
@@ -37,7 +37,7 @@ function ConfigurationProfile(){
   }, []);
 
   const handleSave = (nome, email, senha) => {
-    console.log('fffffffffffffffffffffffffffffffffffffffffffff')
+    // console.log('fffffffffffffffffffffffffffffffffffffffffffff')
       const data = {
         nome,
         senha,
