@@ -12,7 +12,7 @@ function HeaderFeed(){
         <SectionHeader>
         <ColumnDiv>
        <ButtonHeader>
-        <DrawerFeed/>
+        {/* <DrawerFeed/> */}
        </ButtonHeader>
        </ColumnDiv>
        <ColumnDiv>

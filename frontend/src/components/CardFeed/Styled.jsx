@@ -18,6 +18,13 @@ export const DivCard = styled.div`
     border-radius: 3vh;
     overflow: hidden;
     position: relative;
+
+    backdrop-filter: blur(10.094486236572266px);
+    transform: rotate(0.061deg);
+
+
+    background: d0c1dc(71, 6, 62, 0.3);
+
 `
 export const DivProfileCard = styled.div`
     display: flex;

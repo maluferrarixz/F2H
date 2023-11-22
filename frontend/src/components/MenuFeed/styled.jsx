@@ -11,6 +11,14 @@ export const FooterMenuFeed = styled.footer`
     bottom:0;
     left:0;
     border-radius: 19.045px 19.045px 0px 0px;
+    backdrop-filter: blur(10.094486236572266px);
+    transform: rotate(0.061deg);
+
+
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10.094486236572266px);
+
+
 
 
     display: flex;
