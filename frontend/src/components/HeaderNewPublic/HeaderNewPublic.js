@@ -1,5 +1,7 @@
 import {TextBetweenButton, SectionHeader, ColumnDiv, ButtonHeader, ImgButton} from "./styled"
+
 import BackToFeed from "../../Assets/backTofeed.png"
+
 import { Link } from 'react-router-dom';
 
 

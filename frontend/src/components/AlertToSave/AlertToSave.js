@@ -1,5 +1,7 @@
 import { useToast, Button } from '@chakra-ui/react';
 import React, { useEffect, useState } from "react";
+
+
 import SendInteraction from "../../Assets/SaveCard.svg";
 import { ImgFilter } from './styled';
 
@@ -8,12 +10,10 @@ import { api } from "../../services/api";
 function AlertToSave(props) {
   const toast = useToast();
 
-  // const [isSave, setIsSave] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(false);
   const id_user = parseInt(localStorage.getItem('id'));
 
   useEffect(() => {
-    // Lógica adicional pode ser adicionada aqui, se necessário
   }, [props.id_post]);
 
   const handleClick = async () => {
@@ -39,7 +39,6 @@ function AlertToSave(props) {
       variant='ghost'
       onClick={() => {
         handleClick();
-
         // Verifica se o botão já foi clicado antes de exibir a mensagem
         if (buttonClicked) {
           toast({

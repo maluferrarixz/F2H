@@ -6,7 +6,6 @@ function Header(){
 
         <TituloHeader>
             Sign In
-            {/* cadastrar */}
         </TituloHeader>
     )
 }

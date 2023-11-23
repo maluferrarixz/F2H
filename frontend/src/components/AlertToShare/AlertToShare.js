@@ -8,7 +8,6 @@ import React, { useEffect, useState } from "react";
 function ToastExample(props) {
 
 
-  // const [isSave, setIsSave] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(false);
   const id_user = parseInt(localStorage.getItem('id'));
 

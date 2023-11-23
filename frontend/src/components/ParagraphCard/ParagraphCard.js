@@ -10,7 +10,9 @@ import {
     Button,
   } from '@chakra-ui/react'
 
+  
 import { ImgFilter } from './Styled'
+
 import Paragraph from "../../Assets/paragraph.svg"
 
   function BasicUsage( props ) {

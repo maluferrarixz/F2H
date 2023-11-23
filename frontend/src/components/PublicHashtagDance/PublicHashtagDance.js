@@ -74,7 +74,7 @@ import {
             onChange={(e) => setCategory(e.target.value)}>
               <Radio value='HipHop'>Hiphop</Radio>
               <Radio value='Jazz'>Jazz</Radio>
-              <Radio value='ballet'>ballet</Radio>
+     ''         <Radio value='ballet'>ballet</Radio>
               <Radio value='Contemporaneo'>Contemporaneo</Radio>
               <Radio value='dança do ventre'>Dança do ventre</Radio>
             </RadioGroup >

@@ -1,10 +1,12 @@
 import {NewFormImgButtonFooter, NewFormButtonFooter, ProfileButtonImgFooter, ConfigurationButtonFooter, ConfigurationImgButtonFooter, ProfileButtonFooter,  PublicButtonFooter, PublicButtonImgFooter,  FooterMenuFeed, FormButtonFooter, FormButtonImgFooter } from "./styled"
+
+import { Link } from 'react-router-dom';
+
+import newForm from "../../Assets/FormImage.png"
+import configuration from "../../Assets/configurationMenu (2).svg"
 import FormHomeFeed from "../../Assets/HomeFeedMenu.png"
 import PublicIconFeed from "../../Assets/AddPublicFooter.png"
 import ProfileIconFeed from "../../Assets/ProfileFeed.png"
-import { Link } from 'react-router-dom';
-import newForm from "../../Assets/FormImage.png"
-import configuration from "../../Assets/configurationMenu (2).svg"
 
 function MenuFeed(){
 
