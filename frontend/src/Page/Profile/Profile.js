@@ -6,11 +6,22 @@ import ProfileImg from "../../Assets/ProfileImgCard.jpg";
 import MenuFeed from "../../components/MenuFeed/MenuFeed";
 import CardFeed from "../../components/CardFeed/CardFeed";
 import SignOut from "../../components/Signout/SignOut";
+import { useNavigate } from "react-router-dom"
+
 
 function Profile() {
   const [profilePosts, setProfilePosts] = useState([]);
   const [republicPosts, setRepublicPosts] = useState([]);
   const [userData, setUserData] = useState('');
+
+  const userId = parseInt(localStorage.getItem("id"), 10)
+  const navigate = useNavigate()
+
+
+  const [userEditName, setEditUserName] = useState('');
+  const [userEditEmail, setEditUserEmail] = useState('');
+  const [userEditPassword, setEditUserPassword] = useState('');
+
 
   useEffect(() => {
     const fetchData = async () => {

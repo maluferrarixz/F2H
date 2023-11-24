@@ -10,7 +10,6 @@ const jwt = require('jsonwebtoken');
 async function getAllPostsProfile(request, response) {
     const userID = request.params.userID; // Recupere o id do parâmetro da rota
   
-    console.log("oi")
     connection.query('SELECT * FROM post WHERE id_user = ? order by 1 desc', [userID], (err, results) => {
       try {
         if (results) {

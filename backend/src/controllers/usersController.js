@@ -250,7 +250,88 @@ async function getUserById (request, response) {
             }
         });
     }
-module.exports = {
+
+async function updateUser(request, response) {
+        // if(request.file) {
+        //     const query = `UPDATE users
+        //     SET user_name = ?, user_email = ?, img_profile = ?
+        //     WHERE user_id = ?;`;
+        //     const params = Array(
+        //         request.body.nome,
+        //         request.body.email, 
+        //         request.file.filename,
+        //         request.body.userId
+        //         );
+        //         console.log('params :', params);
+    
+        //         connection.query(query, params, (err, results) => {
+        //             console.log('query :', query);
+        //                 try {
+        //                     if (results.affectedRows > 0) {
+        //                         response.status(200).json({
+        //                             success: true,
+        //                             message: `Sucesso! Usuário atualizado.`,
+        //                             data: results
+        //                         });
+        //                     } else {
+        //                         response.status(400).json({
+        //                             success: false,
+        //                             message: `Não foi possível realizar a atualização. Verifique os dados informados`,
+        //                             query: err,
+        //                             sqlMessage: err
+        //                         });
+        //                     }
+        //                 } catch (e) {
+        //                     response.status(400).json({
+        //                         success: false,
+        //                         message: "Ocorreu um erro. Não foi possível atualizar usuário!",
+        //                         query: err,
+        //                         sqlMessage: err
+        //                     });
+        //                 }
+        //             });
+        // } else {
+            console.log('bbbbbbbbbbbbbbb')
+            console.log('==========request.body.user_Id, :', request.body.user_Id);
+            const query = `UPDATE users SET nome = ?, email = ? WHERE id_user = ?;`;
+            const params = Array(
+                request.body.nome,
+                request.body.email,
+                request.body.user_Id,
+
+            );
+            console.log('params :', params);
+    
+                connection.query(query, params, (err, results) => {
+                    console.log('query :', query);
+                        try {
+                            if (results.affectedRows > 0) {
+                                response.status(200).json({
+                                    success: true,
+                                    message: `Sucesso! Usuário atualizado.`,
+                                    data: results
+                                });
+                            } else {
+                                response.status(400).json({
+                                    success: false,
+                                    message: `Não foi possível realizar a atualização. Verifique os dados informados`,
+                                    query: err,
+                                    sqlMessage: err
+                                });
+                            }
+                        } catch (e) {
+                            response.status(400).json({
+                                success: false,
+                                message: "Ocorreu um erro. Não foi possível atualizar usuário!",
+                                query: err,
+                                sqlMessage: err
+                            });
+                        }
+                    });
+        }
+    // }
+    
+    module.exports = {
     listUsers,
     listUserInfos,
     storeUser,

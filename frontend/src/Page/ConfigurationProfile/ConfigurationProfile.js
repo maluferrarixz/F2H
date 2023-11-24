@@ -4,9 +4,9 @@ import {  FormContainer,FormLabel, FormInput, FormForm } from "./styled"
 import {ImgDivProfile, ImgProfile} from "../../Page/Profile/styled"
 import ProfileImg from "../../Assets/ProfileImgCard.jpg"
 import { useState, useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
 import { api } from "../../services/api";
-// import {  useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 
 function ConfigurationProfile(){
@@ -14,7 +14,14 @@ function ConfigurationProfile(){
   const [  setEmail] = useState();
   const [  setNome] = useState();
   const [userData, setUserdata] = useState([]);
-  // const id = localStorage.getItem("id");
+
+
+  const userId = parseInt(localStorage.getItem("id"), 10)
+  const navigate = useNavigate()
+
+  const [userEditName, setEditUserName] = useState('');
+  const [userEditEmail, setEditUserEmail] = useState('');
+  const [userEditPassword, setEditUserPassword] = useState('');
 
 
   const fetchData = async () => {
@@ -36,29 +43,40 @@ function ConfigurationProfile(){
     fetchData();
   }, []);
 
-  const handleSave = (nome, email, senha) => {
-    // console.log('fffffffffffffffffffffffffffffffffffffffffffff')
-      const data = {
-        nome,
-        senha,
-        email
-      };
-      const id = localStorage.getItem('id');
-      const response = api.put(`/user/${id}`, data);
-      console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', response)
-      .then((response)=>{
-        console.log(response)
-      })
-      .catch((erro)=>{
-        return(erro.response)
-      })
-      // if(response.data.data[0].success) {
-      //   alert('atualizado');
-      //   console.log('=====================', response)
-      // }
+  const handleInputChange = (e) => {
+    setEditUserName(e.target.value);
+  };
+
+  const handleInputChange2 = (e) => {
+    setEditUserEmail(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+                        
+    const user_Id = parseInt(localStorage.getItem('id'));
+    localStorage.setItem('name', userEditName)
+    localStorage.setItem('user', userEditEmail)
+                  
+    const paramsForm = {
+      nome: userEditName,
+      email: userEditEmail,
+      user_Id: user_Id
     }
 
-  
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaa')
+    
+    console.log('77777777777777777777777777 formData :', paramsForm);
+
+    try{
+        const response = await api.post("/user/update", paramsForm);
+        console.log('Usuário editado com sucesso:', response.data);
+        navigate('/profile')
+    } catch (error) {
+        console.error('Erro ao criar o post:', error);
+    }
+};
+
   return(
       <>        
       <HeaderConfiguration />      
@@ -67,30 +85,26 @@ function ConfigurationProfile(){
             <ImgProfile src={ProfileImg} />
           </ImgDivProfile>
           <FormLabel>User name
-            <FormInput
-              defaultValue={userData.nome}
+            <FormInput                           
+             value={userEditName}
+             onChange={handleInputChange}
               type="text"
-              onChange={(e) => setNome(e.target.value)}
             />
-          </FormLabel>
+          {/* </FormLabel>
           <FormLabel>Senha
             <FormInput
-              defaultValue={userData.senha}
               type="password" // Corrija o tipo para "password"
-              onChange={(e) => setSenha(e.target.value)}
-            />
+            /> */}
           </FormLabel>
           <FormLabel>Email
             <FormInput
+              value={userEditEmail}
               type="email"
-              defaultValue={userData.email}
-              onChange={(e) => setEmail(e.target.value)}
               placeholder="marialuizinha167@gmail.com"
+              onChange={handleInputChange2}
             />
           </FormLabel>
-          <FormForm
-           onClick={handleSave}
-            // type="submit"
+          <FormForm onClick={handleSubmit}
           >Salvar alterações
           </FormForm>
           <MenuFeed />
